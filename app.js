@@ -75,7 +75,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const refresh = document.getElementById('refresh-btn');
     if (refresh) {
         refresh.addEventListener('click', () => {
-            loadRandomQuestion();
+            if (currentTopic) {
+                loadQuestion(currentTopic);
+            } else {
+                loadRandomQuestion();
+            }
         });
     }
 });
