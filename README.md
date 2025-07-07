@@ -1,5 +1,15 @@
 # LLM Quiz Time
 
+![Deploy](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)
+![License](https://img.shields.io/github/license/llmquiz/llm-quiz-time)
+![Issues](https://img.shields.io/github/issues/llmquiz/llm-quiz-time)
+
+```
+-+-+-+ +-+-+-+-+ +-+-+-+-+
+|L|L|M| |Q|u|i|z| |T|i|m|e|
+-+-+-+ +-+-+-+-+ +-+-+-+-+
+```
+
 A simple web-based quiz app that shows a random question on each refresh.
 
 ## Usage
