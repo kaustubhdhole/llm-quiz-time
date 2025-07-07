@@ -986,7 +986,7 @@
             ],
             "answer": 0,
             "hint": "Inner dimensions cancel, outer remain.",
-            "elaboration": "Multiplying m×k with k×n yields an m×n matrix. The inner dimensions cancel in the dot products while the outer define the output."
+            "elaboration": "Multiplying m\u00d7k with k\u00d7n yields an m\u00d7n matrix. The inner dimensions cancel in the dot products while the outer define the output."
         },
         {
             "question": "The dot product of two vectors measures what geometric property?",
@@ -1001,7 +1001,7 @@
             "elaboration": "The dot product equals norms times the cosine of the angle between vectors. It measures how aligned two vectors are in space."
         },
         {
-            "question": "Which decomposition expresses a matrix as UΣV^T?",
+            "question": "Which decomposition expresses a matrix as U\u03a3V^T?",
             "options": [
                 "QR decomposition",
                 "Cholesky decomposition",
@@ -1010,7 +1010,7 @@
             ],
             "answer": 2,
             "hint": "It's widely used for PCA.",
-            "elaboration": "Singular value decomposition expresses a matrix as UΣV^T. This factorization underlies PCA and reveals matrix rank."
+            "elaboration": "Singular value decomposition expresses a matrix as U\u03a3V^T. This factorization underlies PCA and reveals matrix rank."
         },
         {
             "question": "The eigenvectors of a symmetric matrix are always what?",
@@ -1034,7 +1034,7 @@
             ],
             "answer": 2,
             "hint": "Use the dot product of v with u.",
-            "elaboration": "Projection scales u by (v·u)/(u·u). This gives the component of v lying in the direction of u."
+            "elaboration": "Projection scales u by (v\u00b7u)/(u\u00b7u). This gives the component of v lying in the direction of u."
         },
         {
             "question": "A positive definite matrix has all what?",
@@ -1827,6 +1827,738 @@
             "answer": 0,
             "hint": "They assess harmful content.",
             "elaboration": "Toxicity and bias scores are safety-focused metrics. They measure harmful or unfair content in model outputs."
+        }
+    ],
+    "planning": [
+        {
+            "question": "What is the main role of a planner in an agent loop?",
+            "options": [
+                "Select the next action to take",
+                "Store long term memory",
+                "Render the user interface",
+                "Quantize model weights"
+            ],
+            "answer": 0,
+            "hint": "It decides what the agent should do next.",
+            "elaboration": "The planner chooses the next step or tool to invoke based on the current state and goal."
+        },
+        {
+            "question": "Chain of thought prompting is a form of",
+            "options": [
+                "Open ended reasoning plan",
+                "Weight initialization",
+                "Data augmentation",
+                "Gradient clipping"
+            ],
+            "answer": 0,
+            "hint": "It lists reasoning steps before giving an answer.",
+            "elaboration": "Chain of thought prompts encourage the model to lay out a plan of intermediate steps before the final answer."
+        },
+        {
+            "question": "Why keep a scratchpad during planning?",
+            "options": [
+                "To track intermediate reasoning steps",
+                "To reduce token count",
+                "To force deterministic sampling",
+                "To encrypt prompts"
+            ],
+            "answer": 0,
+            "hint": "It records notes for the next step.",
+            "elaboration": "A scratchpad stores partial thoughts and observations so the agent can refer back during planning."
+        },
+        {
+            "question": "Replanning allows an agent to",
+            "options": [
+                "Adapt to new observations",
+                "Ignore tool outputs",
+                "Increase model size",
+                "Disable safety checks"
+            ],
+            "answer": 0,
+            "hint": "Plans may change when new information arrives.",
+            "elaboration": "Replanning updates the action sequence based on new observations or feedback, improving robustness."
+        },
+        {
+            "question": "A cost function in planning typically",
+            "options": [
+                "Evaluates the desirability of actions",
+                "Compiles the neural network",
+                "Generates training data",
+                "Controls GPU temperature"
+            ],
+            "answer": 0,
+            "hint": "It scores how good a plan is.",
+            "elaboration": "The cost function assigns a value to each possible action or state so the planner can choose the lowest-cost path."
+        },
+        {
+            "question": "Which algorithm is famous for path planning in robotics?",
+            "options": [
+                "A* search",
+                "Stochastic gradient descent",
+                "Backpropagation",
+                "Beam search"
+            ],
+            "answer": 0,
+            "hint": "It expands nodes with the lowest estimated cost first.",
+            "elaboration": "A* search explores paths toward a goal while considering both distance traveled and estimated remaining cost."
+        },
+        {
+            "question": "Hierarchical planning breaks goals into",
+            "options": [
+                "Subtasks that can be solved separately",
+                "Batches for GPUs",
+                "Token embeddings",
+                "Privacy policies"
+            ],
+            "answer": 0,
+            "hint": "Think of high level and low level objectives.",
+            "elaboration": "Hierarchical planning decomposes a complex goal into smaller subgoals that can be tackled one at a time."
+        },
+        {
+            "question": "The observe-think-act loop describes",
+            "options": [
+                "Deliberative agent operation",
+                "Matrix multiplication",
+                "File compression",
+                "Data sharding"
+            ],
+            "answer": 0,
+            "hint": "It is how agents interact with environments repeatedly.",
+            "elaboration": "Agents repeatedly observe the state, think or plan, and then act before looping again."
+        },
+        {
+            "question": "Tree search methods expand nodes representing",
+            "options": [
+                "Possible future action sequences",
+                "Training checkpoints",
+                "Parameter initializations",
+                "Data augmentations"
+            ],
+            "answer": 0,
+            "hint": "Each branch is a different hypothetical future.",
+            "elaboration": "Tree search enumerates possible action sequences, exploring branches to find a good plan."
+        },
+        {
+            "question": "Model-based planning differs from model-free methods by",
+            "options": [
+                "Using a predictive world model",
+                "Skipping gradient updates",
+                "Storing data in CSV files",
+                "Requiring zero compute"
+            ],
+            "answer": 0,
+            "hint": "It simulates the environment before acting.",
+            "elaboration": "Model-based planners use an internal model of the environment to simulate outcomes and choose actions accordingly."
+        }
+    ],
+    "reasoning": [
+        {
+            "question": "Chain-of-thought prompting helps with",
+            "options": [
+                "Complex reasoning problems",
+                "GPU scheduling",
+                "Tokenization speed",
+                "Image rendering"
+            ],
+            "answer": 0,
+            "hint": "It encourages step-by-step solutions.",
+            "elaboration": "By generating intermediate reasoning steps, chain-of-thought improves performance on logic and math tasks."
+        },
+        {
+            "question": "Self-consistency decoding selects",
+            "options": [
+                "The most common final answer from several reasoning paths",
+                "The fastest GPU kernel",
+                "The longest prompt",
+                "The random seed"
+            ],
+            "answer": 0,
+            "hint": "Multiple reasoning traces are sampled.",
+            "elaboration": "Self-consistency samples several reasoning chains and picks the answer that appears most often."
+        },
+        {
+            "question": "Why do reasoning tasks benefit from larger context windows?",
+            "options": [
+                "They may require many intermediate steps",
+                "They train fewer parameters",
+                "They rely on byte pair merges",
+                "They reduce VRAM usage"
+            ],
+            "answer": 0,
+            "hint": "More room allows more thought.",
+            "elaboration": "Reasoning chains can be long. Bigger context windows let the model keep track of all steps."
+        },
+        {
+            "question": "Which benchmark targets multi-step reasoning across diverse subjects?",
+            "options": [
+                "MMLU",
+                "MNIST",
+                "ImageNet",
+                "SQuAD"
+            ],
+            "answer": 0,
+            "hint": "It includes law, physics, history and more.",
+            "elaboration": "MMLU evaluates reasoning and knowledge across many domains using multiple-choice questions."
+        },
+        {
+            "question": "Tool use can assist reasoning by",
+            "options": [
+                "Allowing external calculations",
+                "Reducing sequence length",
+                "Disabling tokens",
+                "Compressing weights"
+            ],
+            "answer": 0,
+            "hint": "Think of calling a calculator or database.",
+            "elaboration": "Agents may delegate parts of reasoning to tools like solvers or search engines to enhance correctness."
+        },
+        {
+            "question": "Deliberate reasoning often trades off",
+            "options": [
+                "More compute for higher accuracy",
+                "Lower learning rate for faster convergence",
+                "Less memory for longer prompts",
+                "More layers for less data"
+            ],
+            "answer": 0,
+            "hint": "Slow thinking can perform better.",
+            "elaboration": "Taking more compute to explore reasoning steps carefully can yield more accurate results."
+        },
+        {
+            "question": "The ReAct pattern combines reasoning with",
+            "options": [
+                "Tool actions",
+                "Weight decay",
+                "Batch normalization",
+                "Loss scaling"
+            ],
+            "answer": 0,
+            "hint": "It interleaves thoughts with API calls.",
+            "elaboration": "ReAct agents write down reasoning then choose an action such as a tool invocation, iteratively."
+        },
+        {
+            "question": "A common failure in reasoning is",
+            "options": [
+                "Hallucinating unsupported steps",
+                "Using too many GPUs",
+                "Compressing the tokenizer",
+                "Faster convergence"
+            ],
+            "answer": 0,
+            "hint": "The logic chain may not be valid.",
+            "elaboration": "Models sometimes generate convincing but incorrect reasoning, including steps that do not actually follow."
+        },
+        {
+            "question": "Providing worked examples in the prompt is called",
+            "options": [
+                "Few-shot prompting",
+                "Cross entropy training",
+                "Quantization aware training",
+                "Weight tying"
+            ],
+            "answer": 0,
+            "hint": "Show the model how to solve it first.",
+            "elaboration": "Few-shot examples demonstrate the reasoning pattern desired, improving performance on similar tasks."
+        },
+        {
+            "question": "Reasoning can improve when models",
+            "options": [
+                "Iterate over multiple attempts",
+                "Freeze embeddings early",
+                "Lower batch size dramatically",
+                "Ignore intermediate outputs"
+            ],
+            "answer": 0,
+            "hint": "Try more than one path to the answer.",
+            "elaboration": "Sampling several reasoning paths and selecting among them or refining iteratively often yields better answers."
+        }
+    ],
+    "long-context": [
+        {
+            "question": "Which attention variant uses a sliding window to handle long sequences?",
+            "options": [
+                "Longformer",
+                "Dropout",
+                "BatchNorm",
+                "ReLU"
+            ],
+            "answer": 0,
+            "hint": "It restricts attention to local neighborhoods.",
+            "elaboration": "Longformer attention scales linearly by attending within a moving window plus a few global tokens."
+        },
+        {
+            "question": "Memory key/value caching across segments enables",
+            "options": [
+                "Extending context beyond the model's window",
+                "Faster matrix inversion",
+                "Smaller vocabulary",
+                "Zero-shot translation"
+            ],
+            "answer": 0,
+            "hint": "It stitches together multiple chunks.",
+            "elaboration": "By caching attention states and reusing them, a model can continue generation over a longer overall context."
+        },
+        {
+            "question": "Rotary position embeddings were introduced to",
+            "options": [
+                "Better extrapolate to longer sequences",
+                "Train in half precision",
+                "Reduce dataset size",
+                "Compute BLEU scores"
+            ],
+            "answer": 0,
+            "hint": "They rotate query and key vectors.",
+            "elaboration": "RoPE encodes relative position information smoothly so transformers generalize to contexts longer than seen in training."
+        },
+        {
+            "question": "Which method breaks long texts into overlapping chunks for retrieval?",
+            "options": [
+                "Sliding window chunking",
+                "Quantization",
+                "Backpropagation",
+                "Token pruning"
+            ],
+            "answer": 0,
+            "hint": "It ensures context continuity across chunks.",
+            "elaboration": "Overlapping chunking provides context overlap so answers requiring information across boundaries can be retrieved."
+        },
+        {
+            "question": "Why are sparse attention patterns useful for long context?",
+            "options": [
+                "They reduce quadratic memory growth",
+                "They increase parameter count",
+                "They normalize activations",
+                "They enforce determinism"
+            ],
+            "answer": 0,
+            "hint": "Full attention is expensive at thousands of tokens.",
+            "elaboration": "Sparse patterns like block or local attention cut computation and memory requirements for long sequences."
+        },
+        {
+            "question": "Segment-level recurrence in transformers allows",
+            "options": [
+                "Reuse of past hidden states",
+                "Faster convolution",
+                "Immediate tokenization",
+                "Better gradient clipping"
+            ],
+            "answer": 0,
+            "hint": "Think Transformer-XL style memory.",
+            "elaboration": "Models like Transformer-XL cache and reuse hidden states from previous segments to achieve longer effective context."
+        },
+        {
+            "question": "What challenge arises when training with very long sequences?",
+            "options": [
+                "Memory usage grows quickly",
+                "Tokens cannot be embedded",
+                "Loss functions fail",
+                "Backpropagation no longer works"
+            ],
+            "answer": 0,
+            "hint": "Attention memory requirements scale with sequence length.",
+            "elaboration": "Training on long sequences can exhaust GPU memory because attention matrices grow with the square of length."
+        },
+        {
+            "question": "Retrieval augmented generation can assist long context tasks by",
+            "options": [
+                "Fetching only relevant documents",
+                "Doubling parameter counts",
+                "Skipping tokenization",
+                "Guaranteeing perfect accuracy"
+            ],
+            "answer": 0,
+            "hint": "Bring in only what you need.",
+            "elaboration": "Retrieval components select a small set of relevant passages so the model does not need the entire corpus in context."
+        },
+        {
+            "question": "Compression of past tokens into summaries is called",
+            "options": [
+                "Context distillation",
+                "Weight tying",
+                "Layer normalization",
+                "Activation checkpointing"
+            ],
+            "answer": 0,
+            "hint": "Summarize old history into fewer tokens.",
+            "elaboration": "Some long-context methods periodically summarize or distill earlier tokens into shorter representations."
+        },
+        {
+            "question": "When context length exceeds training distribution, models may",
+            "options": [
+                "Generalize poorly without special techniques",
+                "Automatically scale linearly",
+                "Avoid overfitting entirely",
+                "Converge in one step"
+            ],
+            "answer": 0,
+            "hint": "Extrapolation can be hard.",
+            "elaboration": "Models trained on short contexts often struggle when asked to handle much longer sequences unless specifically designed for it."
+        }
+    ],
+    "data valuation": [
+        {
+            "question": "Data valuation seeks to measure",
+            "options": [
+                "The contribution of each example",
+                "GPU throughput",
+                "Number of attention heads",
+                "Model inference latency"
+            ],
+            "answer": 0,
+            "hint": "Which examples help most?",
+            "elaboration": "Data valuation methods try to quantify how much each training instance affects the final model."
+        },
+        {
+            "question": "Shapley values are sometimes used for",
+            "options": [
+                "Attributing value to data points",
+                "Initializing weights",
+                "Pruning neurons",
+                "Scheduling batches"
+            ],
+            "answer": 0,
+            "hint": "They come from cooperative game theory.",
+            "elaboration": "Shapley values fairly assign credit to each data point by considering all possible subsets."
+        },
+        {
+            "question": "A data point with negative value might",
+            "options": [
+                "Hurt model performance",
+                "Train faster",
+                "Increase GPU memory",
+                "Improve tokenization"
+            ],
+            "answer": 0,
+            "hint": "Not all data helps the objective.",
+            "elaboration": "If an example introduces noise or bias, its contribution could be negative when measuring data value."
+        },
+        {
+            "question": "Importance sampling during training weights examples based on",
+            "options": [
+                "How informative they are",
+                "Their file size",
+                "Sequence length only",
+                "GPU type"
+            ],
+            "answer": 0,
+            "hint": "Focus on high-value examples more often.",
+            "elaboration": "By estimating example value, importance sampling chooses which data to train on more frequently."
+        },
+        {
+            "question": "Filtering out low-value data can",
+            "options": [
+                "Improve model quality",
+                "Reduce parameter count",
+                "Increase inference cost",
+                "Guarantee perfect fairness"
+            ],
+            "answer": 0,
+            "hint": "Cleaning datasets matters.",
+            "elaboration": "Removing or down-weighting unhelpful examples often leads to better generalization."
+        },
+        {
+            "question": "Gradient-based influence functions estimate",
+            "options": [
+                "How training on one example changes the loss",
+                "The speed of matrix multiply",
+                "The dropout rate",
+                "The optimal learning rate"
+            ],
+            "answer": 0,
+            "hint": "Perturb a single example and observe.",
+            "elaboration": "Influence functions approximate the effect of upweighting or removing an example on the trained model."
+        },
+        {
+            "question": "Active learning selects new data to label based on",
+            "options": [
+                "Expected information gain",
+                "GPU brand",
+                "Tokenization scheme",
+                "Batch size"
+            ],
+            "answer": 0,
+            "hint": "Choose the most informative samples next.",
+            "elaboration": "Active learning strategies query labels for data points that would most improve the model if added."
+        },
+        {
+            "question": "One challenge of data valuation is",
+            "options": [
+                "High computational cost",
+                "Too few tokens",
+                "Lack of gradient descent",
+                "Oversized context windows"
+            ],
+            "answer": 0,
+            "hint": "Measuring contribution can be expensive.",
+            "elaboration": "Accurately estimating the value of each example often requires many retraining runs or approximations."
+        },
+        {
+            "question": "Curriculum learning can be viewed as",
+            "options": [
+                "Scheduling data by value over time",
+                "Removing token embeddings",
+                "Avoiding dropout",
+                "Quantizing weights"
+            ],
+            "answer": 0,
+            "hint": "Easy examples first, harder later.",
+            "elaboration": "Curriculum strategies order training data so that more valuable or simpler examples come earlier."
+        },
+        {
+            "question": "Data valuation techniques can help with",
+            "options": [
+                "Detecting mislabeled or harmful examples",
+                "Increasing sequence length",
+                "Improving GPU clock speed",
+                "Measuring power draw"
+            ],
+            "answer": 0,
+            "hint": "They highlight problematic data points.",
+            "elaboration": "By scoring individual examples, valuation methods can identify mislabeled or low-quality data for removal."
+        }
+    ],
+    "learning rates": [
+        {
+            "question": "The learning rate primarily controls",
+            "options": [
+                "Step size of gradient updates",
+                "Model inference speed",
+                "Tokenization quality",
+                "Batch size"
+            ],
+            "answer": 0,
+            "hint": "It scales the gradient before updating weights.",
+            "elaboration": "A higher learning rate means larger parameter updates per step, while a lower rate yields more gradual changes."
+        },
+        {
+            "question": "Warmup schedules start with",
+            "options": [
+                "A smaller learning rate that increases",
+                "Random token order",
+                "Instant convergence",
+                "No optimizer state"
+            ],
+            "answer": 0,
+            "hint": "It ramps up at the beginning of training.",
+            "elaboration": "Warmup helps stabilize early training by slowly increasing the learning rate from a small initial value."
+        },
+        {
+            "question": "Too high a learning rate can cause",
+            "options": [
+                "Divergence or unstable training",
+                "Lower memory usage",
+                "Faster tokenizer",
+                "Smaller batch norms"
+            ],
+            "answer": 0,
+            "hint": "Loss may explode.",
+            "elaboration": "If updates are too large, the optimizer may overshoot minima and the training loss can diverge."
+        },
+        {
+            "question": "Which optimizer adapts the learning rate for each parameter?",
+            "options": [
+                "Adam",
+                "Nesterov momentum",
+                "Plain SGD",
+                "Adagrad"
+            ],
+            "answer": 0,
+            "hint": "It uses moving averages of gradients and squared gradients.",
+            "elaboration": "Adam computes separate adaptive learning rates for each weight based on past gradients."
+        },
+        {
+            "question": "Learning rate decay typically",
+            "options": [
+                "Reduces the rate as training progresses",
+                "Increases model depth",
+                "Changes tokenization",
+                "Adds more GPUs"
+            ],
+            "answer": 0,
+            "hint": "Slow down to fine tune weights.",
+            "elaboration": "Decaying the learning rate over time allows smaller steps near convergence for better final accuracy."
+        },
+        {
+            "question": "Cyclical learning rate policies",
+            "options": [
+                "Periodically vary the learning rate up and down",
+                "Keep it constant",
+                "Ignore gradient magnitude",
+                "Disable momentum"
+            ],
+            "answer": 0,
+            "hint": "Think of waves in the learning rate.",
+            "elaboration": "Cyclical schedules repeatedly increase and decrease the learning rate to potentially escape shallow minima."
+        },
+        {
+            "question": "The optimal learning rate often depends on",
+            "options": [
+                "Batch size and optimizer",
+                "HTML layout",
+                "Text encoding",
+                "Version control"
+            ],
+            "answer": 0,
+            "hint": "Bigger batches usually allow larger steps.",
+            "elaboration": "Choosing a learning rate takes into account factors like batch size, optimizer type, and desired convergence speed."
+        },
+        {
+            "question": "Gradient noise scale can guide",
+            "options": [
+                "Learning rate and batch size choices",
+                "Token embedding dimensions",
+                "Choice of GPU brand",
+                "Attention head count"
+            ],
+            "answer": 0,
+            "hint": "It measures how noisy updates are.",
+            "elaboration": "The gradient noise scale quantifies how batch size affects gradient variance and can inform learning rate selection."
+        },
+        {
+            "question": "Learning rate finders search for",
+            "options": [
+                "A rate that yields the fastest loss decrease",
+                "The best tokenizer",
+                "The largest hidden dimension",
+                "The cheapest GPU"
+            ],
+            "answer": 0,
+            "hint": "They sweep across values to see which works best.",
+            "elaboration": "LR finders run short training sweeps across a range of rates and pick one where loss decreases smoothly."
+        },
+        {
+            "question": "Very small learning rates can",
+            "options": [
+                "Slow down convergence dramatically",
+                "Increase VRAM usage",
+                "Improve tokenization accuracy",
+                "Cause exploding gradients"
+            ],
+            "answer": 0,
+            "hint": "Updates become tiny.",
+            "elaboration": "If the learning rate is too low, training may take much longer to reach good performance."
+        }
+    ],
+    "tokenization": [
+        {
+            "question": "Byte pair encoding (BPE) works by",
+            "options": [
+                "Merging frequent pairs of symbols",
+                "Initializing weights",
+                "Sorting dataset files",
+                "Applying dropout"
+            ],
+            "answer": 0,
+            "hint": "It repeatedly joins the most common pairs.",
+            "elaboration": "BPE builds a vocabulary by iteratively merging the most frequent adjacent characters or bytes."
+        },
+        {
+            "question": "SentencePiece can operate directly on",
+            "options": [
+                "Raw text without pretokenization",
+                "GPU tensors",
+                "HTML pages",
+                "Graphical images"
+            ],
+            "answer": 0,
+            "hint": "No language-specific tokenizer needed first.",
+            "elaboration": "SentencePiece learns subword units from raw text, avoiding the need for prior tokenization or language rules."
+        },
+        {
+            "question": "A larger vocabulary size generally means",
+            "options": [
+                "Shorter sequences of tokens",
+                "Fewer model parameters",
+                "Lower memory usage",
+                "No subwords"
+            ],
+            "answer": 0,
+            "hint": "More words are captured as single tokens.",
+            "elaboration": "With more vocabulary tokens, text can be represented in fewer tokens on average, though embeddings grow."
+        },
+        {
+            "question": "Tokenization affects",
+            "options": [
+                "How the model sees text input",
+                "GPU clock speed",
+                "Color rendering",
+                "Kernel version"
+            ],
+            "answer": 0,
+            "hint": "It's the first step before encoding.",
+            "elaboration": "The choice of tokenization determines how words and characters are split into model inputs."
+        },
+        {
+            "question": "Detokenization refers to",
+            "options": [
+                "Converting tokens back to text",
+                "Removing dropout",
+                "Halting training",
+                "Resetting weights"
+            ],
+            "answer": 0,
+            "hint": "Reverse of the encoding step.",
+            "elaboration": "After generation, tokens are mapped back into human-readable text through the detokenization process."
+        },
+        {
+            "question": "Subword tokenization helps handle",
+            "options": [
+                "Rare or unseen words",
+                "GPU cooling",
+                "Matrix inversion",
+                "Image pixels"
+            ],
+            "answer": 0,
+            "hint": "Break words into pieces.",
+            "elaboration": "By representing words as smaller units, subword methods can encode new or rare words not seen during training."
+        },
+        {
+            "question": "The BOS token stands for",
+            "options": [
+                "Beginning of sequence",
+                "Batch of samples",
+                "Binary optimized source",
+                "Base operating system"
+            ],
+            "answer": 0,
+            "hint": "It marks where text starts.",
+            "elaboration": "Special tokens like BOS and EOS delimit the start and end of sequences for the model."
+        },
+        {
+            "question": "Unigram language model tokenization chooses",
+            "options": [
+                "A probabilistic set of subwords",
+                "Only whole words",
+                "GPU-friendly binaries",
+                "Deterministic rounding"
+            ],
+            "answer": 0,
+            "hint": "It selects a vocabulary by likelihood.",
+            "elaboration": "The unigram model in SentencePiece picks subword units based on maximizing overall data likelihood."
+        },
+        {
+            "question": "When a tokenizer is poorly aligned with the data, models may",
+            "options": [
+                "Waste capacity modeling bad splits",
+                "Train faster automatically",
+                "Require no embeddings",
+                "Run at infinite speed"
+            ],
+            "answer": 0,
+            "hint": "Bad segmentation hurts efficiency.",
+            "elaboration": "Misaligned tokenization can produce awkward splits that the model wastes parameters on, reducing quality."
+        },
+        {
+            "question": "Tokenizer training often involves",
+            "options": [
+                "Building a vocabulary from representative text",
+                "Backpropagating gradients",
+                "Solving linear systems",
+                "Executing CUDA code"
+            ],
+            "answer": 0,
+            "hint": "Collect text and find frequent patterns.",
+            "elaboration": "To create a tokenizer, a corpus is analyzed to learn which subwords or symbols should make up the vocabulary."
         }
     ]
 }
