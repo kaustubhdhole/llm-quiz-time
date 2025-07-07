@@ -1834,9 +1834,9 @@
             "question": "What is the main role of a planner in an agent loop?",
             "options": [
                 "Select the next action to take",
-                "Store long term memory",
-                "Render the user interface",
-                "Quantize model weights"
+                "Store intermediate observations",
+                "Manage sensor inputs",
+                "Assemble reward signals"
             ],
             "answer": 0,
             "hint": "It decides what the agent should do next.",
@@ -1906,9 +1906,9 @@
             "question": "Hierarchical planning breaks goals into",
             "options": [
                 "Subtasks that can be solved separately",
-                "Batches for GPUs",
-                "Token embeddings",
-                "Privacy policies"
+                "Device placement strategies",
+                "Embedding lookup tables",
+                "Access control policies"
             ],
             "answer": 0,
             "hint": "Think of high level and low level objectives.",
@@ -1918,9 +1918,9 @@
             "question": "The observe-think-act loop describes",
             "options": [
                 "Deliberative agent operation",
-                "Matrix multiplication",
-                "File compression",
-                "Data sharding"
+                "Reactive control loops",
+                "Policy gradient updates",
+                "Evolutionary search iterations"
             ],
             "answer": 0,
             "hint": "It is how agents interact with environments repeatedly.",
@@ -1930,9 +1930,9 @@
             "question": "Tree search methods expand nodes representing",
             "options": [
                 "Possible future action sequences",
-                "Training checkpoints",
-                "Parameter initializations",
-                "Data augmentations"
+                "Hyperparameter settings",
+                "Network layer weights",
+                "Training batch orders"
             ],
             "answer": 0,
             "hint": "Each branch is a different hypothetical future.",
@@ -1942,9 +1942,9 @@
             "question": "Model-based planning differs from model-free methods by",
             "options": [
                 "Using a predictive world model",
-                "Skipping gradient updates",
-                "Storing data in CSV files",
-                "Requiring zero compute"
+                "Pure policy gradient updates",
+                "Logging transitions to disk",
+                "Fixed action scripts"
             ],
             "answer": 0,
             "hint": "It simulates the environment before acting.",
@@ -1956,9 +1956,9 @@
             "question": "Chain-of-thought prompting helps with",
             "options": [
                 "Complex reasoning problems",
-                "GPU scheduling",
-                "Tokenization speed",
-                "Image rendering"
+                "Simple recall tasks",
+                "Token classification",
+                "Embedding lookup speed"
             ],
             "answer": 0,
             "hint": "It encourages step-by-step solutions.",
@@ -2504,9 +2504,9 @@
             "question": "Subword tokenization helps handle",
             "options": [
                 "Rare or unseen words",
-                "GPU cooling",
-                "Matrix inversion",
-                "Image pixels"
+                "More consistent capitalization",
+                "Precise whitespace removal",
+                "Fixed-length n-grams"
             ],
             "answer": 0,
             "hint": "Break words into pieces.",
@@ -2552,9 +2552,9 @@
             "question": "Tokenizer training often involves",
             "options": [
                 "Building a vocabulary from representative text",
-                "Backpropagating gradients",
-                "Solving linear systems",
-                "Executing CUDA code"
+                "Learning token embeddings",
+                "Estimating morphological rules",
+                "Compressing model checkpoints"
             ],
             "answer": 0,
             "hint": "Collect text and find frequent patterns.",
