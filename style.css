@@ -106,3 +106,10 @@ body {
     font-size: 0.8rem;
     color: #bdbdbd;
 }
+
+.ascii-art {
+    margin-bottom: 1rem;
+    color: #39ff14;
+    font-family: "Courier New", monospace;
+    white-space: pre;
+}
