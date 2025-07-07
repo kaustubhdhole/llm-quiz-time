@@ -1,10 +1,8 @@
 # LLM Quiz Time
 
-![Deploy](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)
-![License](https://img.shields.io/github/license/llmquiz/llm-quiz-time)
-![Issues](https://img.shields.io/github/issues/llmquiz/llm-quiz-time)
+[![Build](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml) [![License](https://img.shields.io/github/license/llmquiz/llm-quiz-time)](LICENSE) [![Open Issues](https://img.shields.io/github/issues/llmquiz/llm-quiz-time)](https://github.com/llmquiz/llm-quiz-time/issues) [![Website](https://img.shields.io/badge/website-live-brightgreen)](https://kaustubhdhole.github.io/llm-quiz-time/)
 
-```
+```text
 -+-+-+ +-+-+-+-+ +-+-+-+-+
 |L|L|M| |Q|u|i|z| |T|i|m|e|
 -+-+-+ +-+-+-+-+ +-+-+-+-+
