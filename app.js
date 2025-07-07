@@ -1,5 +1,7 @@
 let questions = {};
 let currentAnswer = null;
+let currentHint = '';
+let currentElaboration = '';
 let currentTopic = null;
 const topicButtons = {};
 
@@ -38,6 +40,8 @@ function loadQuestion(topic) {
     optionsDiv.innerHTML = '';
     resultDiv.textContent = '';
     currentAnswer = q.answer;
+    currentHint = q.hint || '';
+    currentElaboration = q.elaboration || '';
     if (currentTopic && topicButtons[currentTopic]) {
         topicButtons[currentTopic].classList.remove('active');
     }
@@ -59,10 +63,10 @@ function checkAnswer(idx) {
     const resultDiv = document.getElementById('result');
     if (idx === currentAnswer) {
         resultDiv.style.color = '#39ff14';
-        resultDiv.innerHTML = '&#10004; Correct!';
+        resultDiv.innerHTML = `&#10004; Correct! ${currentElaboration}`;
     } else {
         resultDiv.style.color = 'red';
-        resultDiv.innerHTML = '&#10008; Not quite, try again!';
+        resultDiv.innerHTML = `&#10008; Not quite, try again! ${currentHint}`;
     }
 }
 
