@@ -12,6 +12,7 @@
 ```
 
 A simple web-based quiz app that shows a random question on each refresh.
+Topics now include planning, reasoning, long-context, data valuation, learning rates, and tokenization.
 
 ## Usage
 Open `index.html` in your browser. The page fetches questions from
