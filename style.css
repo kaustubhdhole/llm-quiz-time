@@ -82,11 +82,23 @@ body {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-    background: transparent;
-    border: none;
+    width: 2rem;
+    height: 2rem;
+    background: #1e1e1e;
+    border: 1px solid #39ff14;
+    border-radius: 50%;
     color: #39ff14;
     font-size: 1.2rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.refresh-btn:hover {
+    transform: rotate(90deg);
+    box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
 }
 
 .note {
