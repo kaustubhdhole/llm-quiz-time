@@ -38,7 +38,13 @@ body {
     color: #000;
 }
 
+.topic.active {
+    background: #39ff14;
+    color: #000;
+}
+
 .quiz-tile {
+    position: relative;
     background: #1e1e1e;
     padding: 2rem;
     border-radius: 10px;
@@ -70,6 +76,17 @@ body {
 .result {
     margin-top: 1rem;
     font-weight: bold;
+}
+
+.refresh-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #39ff14;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .note {

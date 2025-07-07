@@ -1,5 +1,7 @@
 let questions = {};
 let currentAnswer = null;
+let currentTopic = null;
+const topicButtons = {};
 
 async function loadData() {
     const res = await fetch('questions.json');
@@ -10,6 +12,7 @@ async function loadData() {
         btn.className = 'topic';
         btn.textContent = topic;
         btn.addEventListener('click', () => loadQuestion(topic));
+        topicButtons[topic] = btn;
         topicsDiv.appendChild(btn);
     });
 
@@ -35,6 +38,13 @@ function loadQuestion(topic) {
     optionsDiv.innerHTML = '';
     resultDiv.textContent = '';
     currentAnswer = q.answer;
+    if (currentTopic && topicButtons[currentTopic]) {
+        topicButtons[currentTopic].classList.remove('active');
+    }
+    currentTopic = topic;
+    if (topicButtons[currentTopic]) {
+        topicButtons[currentTopic].classList.add('active');
+    }
 
     q.options.forEach((opt, idx) => {
         const div = document.createElement('div');
@@ -56,4 +66,14 @@ function checkAnswer(idx) {
     }
 }
 
-window.addEventListener('DOMContentLoaded', loadData);
+window.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    const refresh = document.getElementById('refresh-btn');
+    if (refresh) {
+        refresh.addEventListener('click', () => {
+            if (currentTopic) {
+                loadQuestion(currentTopic);
+            }
+        });
+    }
+});
