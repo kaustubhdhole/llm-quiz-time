@@ -12,6 +12,16 @@ async function loadData() {
         btn.addEventListener('click', () => loadQuestion(topic));
         topicsDiv.appendChild(btn);
     });
+
+    // Display a random question on initial load
+    loadRandomQuestion();
+}
+
+function loadRandomQuestion() {
+    const topics = Object.keys(questions);
+    if (topics.length === 0) return;
+    const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+    loadQuestion(randomTopic);
 }
 
 function loadQuestion(topic) {
