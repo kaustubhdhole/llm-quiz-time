@@ -1,5 +1,7 @@
 let questions = {};
 let currentAnswer = null;
+let currentHint = '';
+let currentElaboration = '';
 
 async function loadData() {
     const res = await fetch('questions.json');
@@ -35,6 +37,8 @@ function loadQuestion(topic) {
     optionsDiv.innerHTML = '';
     resultDiv.textContent = '';
     currentAnswer = q.answer;
+    currentHint = q.hint || '';
+    currentElaboration = q.elaboration || '';
 
     q.options.forEach((opt, idx) => {
         const div = document.createElement('div');
@@ -49,10 +53,10 @@ function checkAnswer(idx) {
     const resultDiv = document.getElementById('result');
     if (idx === currentAnswer) {
         resultDiv.style.color = '#39ff14';
-        resultDiv.innerHTML = '&#10004; Correct!';
+        resultDiv.innerHTML = `&#10004; Correct! ${currentElaboration}`;
     } else {
         resultDiv.style.color = 'red';
-        resultDiv.innerHTML = '&#10008; Not quite, try again!';
+        resultDiv.innerHTML = `&#10008; Not quite, try again! ${currentHint}`;
     }
 }
 
