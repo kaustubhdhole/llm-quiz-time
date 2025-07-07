@@ -67,3 +67,9 @@ body {
     margin-top: 1rem;
     font-weight: bold;
 }
+
+.note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #bdbdbd;
+}
