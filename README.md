@@ -3,6 +3,7 @@
 ![Deploy](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)
 ![License](https://img.shields.io/github/license/llmquiz/llm-quiz-time)
 ![Issues](https://img.shields.io/github/issues/llmquiz/llm-quiz-time)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fkaustubhdhole.github.io%2Fllm-quiz-time%2F)](https://kaustubhdhole.github.io/llm-quiz-time/)
 
 ```
 -+-+-+ +-+-+-+-+ +-+-+-+-+
@@ -21,7 +22,7 @@ The repository includes a GitHub Actions workflow that publishes the contents of
 the `main` branch to GitHub Pages. Because this repository is not named
 `llmquiz.github.io`, the site is served from the repository subpath. After
 pushing to `main`, the website will be available at
-[https://llmquiz.github.io/llm-quiz-time/](https://llmquiz.github.io/llm-quiz-time/)
+[https://kaustubhdhole.github.io/llm-quiz-time/](https://kaustubhdhole.github.io/llm-quiz-time/)
 (note the trailing `/`).
 
 If the page still returns a 404, verify that GitHub Pages is enabled for this
