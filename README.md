@@ -1,6 +1,6 @@
 # LLM Quiz Time
 
-![Deploy](https://github.com/llmquiz/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)
+![Deploy](https://github.com/kaustubhdhole/llm-quiz-time/actions/workflows/deploy.yml/badge.svg)
 ![License](https://img.shields.io/github/license/llmquiz/llm-quiz-time)
 ![Issues](https://img.shields.io/github/issues/llmquiz/llm-quiz-time)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fkaustubhdhole.github.io%2Fllm-quiz-time%2F)](https://kaustubhdhole.github.io/llm-quiz-time/)
