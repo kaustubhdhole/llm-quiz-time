@@ -1,22 +1,1532 @@
-[
-    {
-        "question": "What does LLM stand for?",
-        "options": ["Large Language Model", "Long Lengthy Module", "Light Logic Machine", "Local Link Map"]
-    },
-    {
-        "question": "Which company created GPT-4?",
-        "options": ["OpenAI", "Google", "Meta", "IBM"]
-    },
-    {
-        "question": "What is the time complexity of binary search?",
-        "options": ["O(log n)", "O(n)", "O(n^2)", "O(1)"]
-    },
-    {
-        "question": "Which language runs in a web browser?",
-        "options": ["JavaScript", "Python", "C++", "Java"]
-    },
-    {
-        "question": "What year was the C programming language developed?",
-        "options": ["1972", "1980", "1965", "1991"]
-    }
-]
+{
+    "parallelism": [
+        {
+            "question": "In model parallel training, which approach splits tensors across devices to keep layers intact?",
+            "options": [
+                "Pipeline parallelism",
+                "Tensor parallelism",
+                "Data parallelism",
+                "Gradient checkpointing"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which technique overlaps computation with communication to speed up distributed training?",
+            "options": [
+                "All-reduce",
+                "Deep gradient compression",
+                "Pipelining",
+                "Dropout"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Data parallelism primarily duplicates which component across devices?",
+            "options": [
+                "Model weights",
+                "Activation memory",
+                "Gradient buffers",
+                "Optimizer state"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is the main goal of ZeRO stage 3?",
+            "options": [
+                "Reduce activation recomputation",
+                "Shard optimizer states, gradients, and parameters",
+                "Increase batch size",
+                "Prune attention heads"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which communication primitive is commonly used to synchronize gradients across GPUs?",
+            "options": [
+                "Broadcast",
+                "Scatter",
+                "Gather",
+                "All-reduce"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "Pipeline parallelism can cause which type of inefficiency at the beginning and end of a batch?",
+            "options": [
+                "Load imbalance",
+                "Communication overlap",
+                "Bubble overhead",
+                "Gradient staleness"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Tensor parallelism often relies on which operation to split matrix multiplication across GPUs?",
+            "options": [
+                "All-to-all",
+                "Reduce-scatter",
+                "Ring exchange",
+                "Megatron-LM mapping"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Gradient checkpointing trades memory for what?",
+            "options": [
+                "Faster convergence",
+                "Reduced communication",
+                "Extra computation",
+                "Better accuracy"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Which scheduling strategy minimizes pipeline bubbles in GPipe?",
+            "options": [
+                "1F1B",
+                "All-reduce",
+                "Gradient accumulation",
+                "Data sharding"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Sharding the embedding table across workers is an example of which technique?",
+            "options": [
+                "Model parallelism",
+                "Batch splitting",
+                "Optimizer fusion",
+                "Weight tying"
+            ],
+            "answer": 0
+        }
+    ],
+    "inference": [
+        {
+            "question": "Which caching technique speeds up autoregressive decoding by reusing past key/value tensors?",
+            "options": [
+                "Gradient checkpoint",
+                "Attention caching",
+                "Weight tying",
+                "Dynamic quantization"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Speculative decoding uses a small model to propose tokens and a large model to do what?",
+            "options": [
+                "Prune heads",
+                "Verify the proposal",
+                "Quantize weights",
+                "Expand the sequence"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What does batching requests at inference time primarily improve?",
+            "options": [
+                "Model accuracy",
+                "Throughput",
+                "Latency for a single request",
+                "Memory consumption"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which precision is commonly used for weights during inference to reduce memory without large accuracy loss?",
+            "options": [
+                "float64",
+                "bfloat16",
+                "float32",
+                "int8"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "Transformer-based models generate tokens one at a time because of what property?",
+            "options": [
+                "Causal masking",
+                "Multi-head attention",
+                "Layer normalization",
+                "Dropout"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "In vLLM, what feature allows highly concurrent request serving?",
+            "options": [
+                "Tensor parallelism",
+                "Paged attention",
+                "Pipeline bubbles",
+                "Gradient clipping"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The logits of which tokens are typically filtered out during nucleus sampling?",
+            "options": [
+                "Tokens outside the top-p cumulative mass",
+                "All punctuation tokens",
+                "Tokens with max frequency",
+                "The [MASK] token"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What does beam search trade for improved quality compared to greedy decoding?",
+            "options": [
+                "More GPU memory",
+                "Lower precision",
+                "Higher compute cost",
+                "Fewer tokens"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Which method speeds up inference by merging multiple attention heads into one?",
+            "options": [
+                "KV caching",
+                "Head pruning",
+                "Quantization",
+                "Knowledge distillation"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Token streaming APIs primarily reduce what metric from the user's perspective?",
+            "options": [
+                "Cost",
+                "Energy usage",
+                "Perceived latency",
+                "Token perplexity"
+            ],
+            "answer": 2
+        }
+    ],
+    "alignment": [
+        {
+            "question": "RLHF uses a reward model trained from what type of data?",
+            "options": [
+                "Human preference comparisons",
+                "Backtranslation pairs",
+                "Masked tokens",
+                "Gradient noise"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Constitutional AI replaces human-written rewards with what?",
+            "options": [
+                "Synthetic demonstrations",
+                "Fixed self-consistency rules",
+                "Refusals",
+                "Policy distillation"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which technique fine-tunes a language model to follow instructions using curated prompts and completions?",
+            "options": [
+                "LoRA",
+                "Instruction tuning",
+                "Token pruning",
+                "Byte pair encoding"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The term 'alignment tax' refers to what?",
+            "options": [
+                "Extra inference latency",
+                "Additional compute for safety measures",
+                "Lower perplexity",
+                "Using more parameters"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Why is reward hacking a challenge in RLHF?",
+            "options": [
+                "Rewards are computed in real-time",
+                "The policy may exploit imperfections in the reward model",
+                "Too few prompts are used",
+                "Trained on synthetic data"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which method attempts to prevent harmful output by generating multiple responses and selecting a safe one?",
+            "options": [
+                "Adversarial training",
+                "Self-consistency decoding",
+                "Topic blocking",
+                "DPO"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Anthropic's 'harmlessness training' combines supervised fine-tuning with what?",
+            "options": [
+                "Adversarially generated attacks",
+                "Token masking",
+                "Static prompts",
+                "Dropout"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Alignment verification often relies on what kind of evaluator?",
+            "options": [
+                "Another language model",
+                "Manual regex",
+                "Sequence length heuristics",
+                "Random sampling"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Which approach directly optimizes the policy against a reward without sampling trajectories?",
+            "options": [
+                "Direct preference optimization",
+                "Behavior cloning",
+                "Policy gradient",
+                "Contrastive pretraining"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Red teaming is primarily used for what purpose?",
+            "options": [
+                "Increasing training data size",
+                "Finding failure modes",
+                "Improving latency",
+                "Reducing parameters"
+            ],
+            "answer": 1
+        }
+    ],
+    "agents": [
+        {
+            "question": "The ReAct pattern combines which two types of model outputs?",
+            "options": [
+                "Reasoning traces and actions",
+                "Gradients and rewards",
+                "Images and text",
+                "Latent codes and logits"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Which component plans the next step in a typical agent loop?",
+            "options": [
+                "Memory vector store",
+                "Policy or planner",
+                "Output formatter",
+                "Knowledge graph"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Toolformer augments training data by inserting what?",
+            "options": [
+                "Synthetic mistakes",
+                "API calls",
+                "Reverse prompts",
+                "Extra padding"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Why are agents typically more expensive than direct completion?",
+            "options": [
+                "They require smaller models",
+                "They involve multiple model calls and tool use",
+                "They always run on CPUs",
+                "They operate in fixed time"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which approach keeps a record of previous steps to give the agent context?",
+            "options": [
+                "Gradient descent",
+                "Scratchpad",
+                "Weight tying",
+                "Batch normalization"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Function calling in GPT models allows the model to do what?",
+            "options": [
+                "Generate images",
+                "Return structured JSON describing tool use",
+                "Modify its weights",
+                "Run faster"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "LangChain's agent framework primarily organizes what?",
+            "options": [
+                "Data parallel replicas",
+                "Sequences of tool invocations",
+                "GPU kernels",
+                "Matrix factorizations"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Action observation loops are necessary for agents interacting with what type of environment?",
+            "options": [
+                "Pure text",
+                "External stateful systems",
+                "Static images",
+                "Trained policies"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "OpenAI's function calling requires the user to provide what to the model?",
+            "options": [
+                "Reward signals",
+                "API specifications",
+                "GPU usage",
+                "Dropout rate"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which technique helps an agent reduce hallucination when executing code?",
+            "options": [
+                "Loop unrolling",
+                "Sandboxed execution with error feedback",
+                "Weight averaging",
+                "Sequence bucketing"
+            ],
+            "answer": 1
+        }
+    ],
+    "pretraining": [
+        {
+            "question": "Which loss is standard for autoregressive language model pretraining?",
+            "options": [
+                "CTC loss",
+                "Cross-entropy on next token prediction",
+                "Triplet loss",
+                "Contrastive loss"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Compute-optimal model scaling suggests balancing parameter count with what?",
+            "options": [
+                "Vocabulary size",
+                "Dataset tokens",
+                "Gradient noise",
+                "Batch size"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The Chinchilla paper argues that many prior models were what?",
+            "options": [
+                "Too deep",
+                "Undertrained on tokens",
+                "Over-regularized",
+                "Using too small a vocabulary"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Text deduplication before training primarily reduces which risk?",
+            "options": [
+                "Overfitting",
+                "Long context",
+                "Vocabulary mismatch",
+                "Hardware failures"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Why are large batch sizes sometimes detrimental during pretraining?",
+            "options": [
+                "They increase variance",
+                "They lead to poor generalization",
+                "They reduce GPU utilization",
+                "They require smaller learning rates"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Masking the input as in BERT leads to what type of training objective?",
+            "options": [
+                "Denoising autoencoding",
+                "Sequence labeling",
+                "Reinforcement learning",
+                "Next sentence prediction only"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Curriculum learning adjusts what aspect of training over time?",
+            "options": [
+                "Model depth",
+                "Data difficulty",
+                "Weight decay",
+                "Optimizer type"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Tokenization with sentencepiece uses which subword strategy?",
+            "options": [
+                "Whitespace splitting",
+                "WordPiece",
+                "Unigram language modeling",
+                "Character hashing"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Why might you mix code and text data during pretraining?",
+            "options": [
+                "To reduce vocabulary",
+                "To improve reasoning and precision",
+                "To lower compute cost",
+                "To remove comments"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Gradient noise scale is often used to measure what?",
+            "options": [
+                "Length of training",
+                "Effectiveness of scaling batch size",
+                "Optimizer stability",
+                "Amount of dropout"
+            ],
+            "answer": 1
+        }
+    ],
+    "retrieval": [
+        {
+            "question": "In retrieval-augmented generation, embeddings of the query are compared against what?",
+            "options": [
+                "Model parameters",
+                "A document index",
+                "GPU kernels",
+                "Optimizer states"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Faiss is commonly used to accelerate which operation?",
+            "options": [
+                "Neural network training",
+                "Approximate nearest neighbor search",
+                "Tokenization",
+                "Model quantization"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the main benefit of a hybrid search combining dense and sparse retrieval?",
+            "options": [
+                "Lower latency",
+                "Improved recall across document types",
+                "Reduced memory usage",
+                "Fewer API calls"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which component integrates retrieved passages into the model's context?",
+            "options": [
+                "Vector index",
+                "Retriever",
+                "Fusion-in-decoder",
+                "Optimizer"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Why might you use retrieval during pretraining?",
+            "options": [
+                "To reduce dataset size",
+                "To provide grounding information",
+                "To increase dropout",
+                "To compress weights"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "BM25 is an algorithm for what kind of retrieval?",
+            "options": [
+                "Dense vector",
+                "Sparse lexical",
+                "Document summarization",
+                "Inverse scaling"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "RAG models often refresh their index periodically to",
+            "options": [
+                "Improve GPU utilization",
+                "Include new knowledge",
+                "Change tokenizer",
+                "Reduce training time"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "When using a vector database, what speed-quality tradeoff does the 'HNSW' algorithm control?",
+            "options": [
+                "Batch size vs. latency",
+                "Search accuracy vs. time",
+                "Index size vs. parameter count",
+                "Gradient precision"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "ColBERT separates each token into embeddings to enable what?",
+            "options": [
+                "Byte pair encoding",
+                "Fine-grained relevance scoring",
+                "Model parallel training",
+                "Mixture of experts"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Dense retrieval often uses which training method to learn representations?",
+            "options": [
+                "Contrastive learning",
+                "Causal language modeling",
+                "Decision transformers",
+                "Neural style transfer"
+            ],
+            "answer": 0
+        }
+    ],
+    "gpus": [
+        {
+            "question": "Which type of GPU memory is typically the smallest but fastest?",
+            "options": [
+                "HBM",
+                "Register file",
+                "L2 cache",
+                "Global memory"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "FP16 tensor cores primarily speed up which operation?",
+            "options": [
+                "Disk IO",
+                "Matrix multiplications",
+                "Random number generation",
+                "Control flow"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Peer-to-peer communication between GPUs on the same NVLink fabric avoids what?",
+            "options": [
+                "L2 cache",
+                "Host CPU memory",
+                "Kernel launches",
+                "Shared memory"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which metric best indicates how fully the GPU compute units are utilized?",
+            "options": [
+                "GPU temperature",
+                "SM occupancy",
+                "Memory capacity",
+                "PCIe bandwidth"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The CUDA kernel launch overhead becomes significant when launching how many kernels?",
+            "options": [
+                "Millions of very small kernels",
+                "A few large kernels",
+                "Any number of kernels",
+                "Kernels with large registers"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Mixed precision training relies on which numerical format for master weights?",
+            "options": [
+                "float64",
+                "float32",
+                "bfloat16",
+                "int8"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which GPU feature enables running large models that don't fit entirely in memory?",
+            "options": [
+                "Unified memory paging",
+                "Gradient scaling",
+                "Warp shuffling",
+                "Thread coarsening"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Tensor cores accelerate which computation pattern?",
+            "options": [
+                "Element-wise addition",
+                "Fused multiply-add matrix operations",
+                "Sorting algorithms",
+                "Random memory access"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "GPU streams help overlap what kinds of operations?",
+            "options": [
+                "File reads",
+                "Compute and data transfers",
+                "Branch predictions",
+                "Kernel fusion"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "How can kernel fusion improve performance on GPUs?",
+            "options": [
+                "By splitting operations into multiple kernels",
+                "By combining small kernels to reduce memory traffic",
+                "By copying data to CPU",
+                "By disabling caching"
+            ],
+            "answer": 1
+        }
+    ],
+    "scaling laws": [
+        {
+            "question": "Kaplan et al.'s scaling laws relate performance to what variables?",
+            "options": [
+                "Optimizer and batch size",
+                "Model size, dataset size, and compute",
+                "Tokenization and beam width",
+                "Number of layers only"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "As models scale, the optimal ratio of data to parameters was updated by which paper?",
+            "options": [
+                "GPT-2",
+                "Chinchilla",
+                "BERT",
+                "LoRA"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The term 'power law' in scaling refers to what relationship?",
+            "options": [
+                "Linear",
+                "Exponential",
+                "Polynomial where growth follows a constant exponent",
+                "Logarithmic"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Scaling laws predict that performance improves smoothly as a function of what?",
+            "options": [
+                "Vocabulary size",
+                "Compute budget",
+                "Prompt length",
+                "Dropout rate"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which phenomenon occurs when scaling a model beyond data availability?",
+            "options": [
+                "Emergent abilities",
+                "Overfitting and diminishing returns",
+                "Lower training loss",
+                "Better privacy"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Compute-optimal scaling balances what two quantities?",
+            "options": [
+                "Learning rate and batch size",
+                "Model parameters and training tokens",
+                "Inference latency and cost",
+                "GPU memory and CPU memory"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The 'effective data scaling law' suggests what about repeated data?",
+            "options": [
+                "Repeating data always helps",
+                "Too much repetition hurts generalization",
+                "It only matters for vision models",
+                "Scaling laws ignore repetition"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which metric is often plotted versus model size to reveal scaling trends?",
+            "options": [
+                "FLOPs per second",
+                "Training loss or perplexity",
+                "Quantization bits",
+                "GPU temperature"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "When models get larger, which component of the training cost dominates?",
+            "options": [
+                "Data preprocessing",
+                "Compute FLOPs",
+                "Disk IO",
+                "Optimizer updates"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Inverse scaling refers to tasks where performance does what as models grow?",
+            "options": [
+                "Improves logarithmically",
+                "Degrades with increased scale",
+                "Remains constant",
+                "Exceeds human level"
+            ],
+            "answer": 1
+        }
+    ],
+    "linear algebra": [
+        {
+            "question": "Matrix multiplication of A (m x k) and B (k x n) results in what shape?",
+            "options": [
+                "m x n",
+                "k x k",
+                "n x n",
+                "m x k"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "The dot product of two vectors measures what geometric property?",
+            "options": [
+                "Angle cosine scaled by norms",
+                "Vector cross area",
+                "Eigenvalue",
+                "Matrix rank"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Which decomposition expresses a matrix as U\u03a3V^T?",
+            "options": [
+                "QR decomposition",
+                "Cholesky decomposition",
+                "Singular value decomposition",
+                "Eigen decomposition"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "The eigenvectors of a symmetric matrix are always what?",
+            "options": [
+                "Complex-valued",
+                "Orthogonal",
+                "Zero",
+                "Non-invertible"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which operation is used to compute the projection of vector v onto vector u?",
+            "options": [
+                "Cross product",
+                "Outer product",
+                "Scalar multiplication of u by the dot product ratio",
+                "Matrix inversion"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "A positive definite matrix has all what?",
+            "options": [
+                "Negative eigenvalues",
+                "Eigenvalues equal to one",
+                "Positive eigenvalues",
+                "Zero determinant"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "The Frobenius norm of a matrix is equivalent to what operation on its entries?",
+            "options": [
+                "Sum",
+                "Sum of squares and square root",
+                "Product",
+                "Maximum"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Orthogonal matrices preserve which property?",
+            "options": [
+                "Vector norms",
+                "Matrix rank",
+                "Trace",
+                "Skewness"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Which method efficiently solves Ax = b when A is triangular?",
+            "options": [
+                "Gaussian elimination",
+                "LU decomposition",
+                "Cholesky factorization",
+                "Forward or backward substitution"
+            ],
+            "answer": 3
+        },
+        {
+            "question": "The rank of a matrix equals the dimension of what space?",
+            "options": [
+                "Null space",
+                "Column space",
+                "Row space",
+                "Both row and column space"
+            ],
+            "answer": 3
+        }
+    ],
+    "privacy": [
+        {
+            "question": "Differential privacy provides a bound on what?",
+            "options": [
+                "Computation time",
+                "Information an attacker can learn about any individual",
+                "Model size",
+                "Training epochs"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Gradient clipping in DPSGD helps enforce what property?",
+            "options": [
+                "Faster convergence",
+                "Bounded sensitivity",
+                "Lower perplexity",
+                "Higher recall"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Why is memorization of rare sequences a privacy concern?",
+            "options": [
+                "It increases model size",
+                "It can leak personal data verbatim",
+                "It slows inference",
+                "It lowers BLEU score"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which method can remove training data after the model is trained?",
+            "options": [
+                "Data poisoning",
+                "Machine unlearning",
+                "Batch normalization",
+                "Weight decay"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Synthetic data generation is sometimes used for privacy because it",
+            "options": [
+                "Avoids training entirely",
+                "Does not expose real user records",
+                "Requires smaller models",
+                "Uses less compute"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Federated learning keeps raw data where?",
+            "options": [
+                "Central server",
+                "Each user's device",
+                "Public cloud",
+                "Random subset of nodes"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Encryption during training primarily protects what aspect?",
+            "options": [
+                "Model weights from corruption",
+                "Communication channels carrying data",
+                "Inference latency",
+                "Optimization loss"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Membership inference attacks attempt to determine what?",
+            "options": [
+                "Parameter count",
+                "Whether a record was in the training set",
+                "GPU type",
+                "Learning rate"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is one challenge of homomorphic encryption for neural networks?",
+            "options": [
+                "It lowers perplexity",
+                "Operations become computationally expensive",
+                "It requires GPUs",
+                "It reduces vocabulary"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "PATE (Private Aggregation of Teacher Ensembles) relies on what concept?",
+            "options": [
+                "Knowledge distillation with noise",
+                "Gradient descent",
+                "Token pruning",
+                "Data deduplication"
+            ],
+            "answer": 0
+        }
+    ],
+    "ethics": [
+        {
+            "question": "Which term describes unintended harmful effects from model deployment?",
+            "options": [
+                "Beneficence",
+                "Alignment",
+                "Negative externalities",
+                "Sampling bias"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Dataset curation is critical to reduce what ethical issue?",
+            "options": [
+                "Compute cost",
+                "Bias and offensive content",
+                "Token length",
+                "Algorithmic complexity"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Transparency in model reporting can be achieved with",
+            "options": [
+                "Model cards",
+                "Dropout",
+                "Quantization",
+                "Early stopping"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Why is undisclosed synthetic content problematic?",
+            "options": [
+                "It improves retrieval accuracy",
+                "It may mislead users about authenticity",
+                "It speeds up inference",
+                "It increases dataset size"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Fairness evaluations often compare metrics across what?",
+            "options": [
+                "GPU types",
+                "Demographic groups",
+                "Optimizer choices",
+                "Model layers"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The precautionary principle suggests what approach to deployment?",
+            "options": [
+                "Release widely first",
+                "Delay deployment until risks are understood",
+                "Ignore alignment",
+                "Open-source everything"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Content moderation using another language model is an example of",
+            "options": [
+                "Hierarchical modeling",
+                "Automated oversight",
+                "Mixture of experts",
+                "Data augmentation"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Why is red teaming important ethically?",
+            "options": [
+                "It lowers compute cost",
+                "It identifies potential misuse scenarios",
+                "It speeds up training",
+                "It reduces dataset size"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which principle encourages developers to explain model limitations clearly?",
+            "options": [
+                "Beneficence",
+                "Autonomy",
+                "Transparency",
+                "Justice"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Limiting data from certain groups can lead to what ethical issue?",
+            "options": [
+                "Underrepresentation bias",
+                "Better fairness",
+                "Faster evaluation",
+                "Improved alignment"
+            ],
+            "answer": 0
+        }
+    ],
+    "interpretability": [
+        {
+            "question": "Attention visualization aims to interpret which model component?",
+            "options": [
+                "Embedding layer",
+                "Optimizer",
+                "Attention weights",
+                "Output logits"
+            ],
+            "answer": 2
+        },
+        {
+            "question": "Feature attribution methods like Integrated Gradients output what?",
+            "options": [
+                "Probability distributions",
+                "Per-token importance scores",
+                "Hidden states",
+                "Loss values"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "The term 'superposition' in interpretability refers to what?",
+            "options": [
+                "Multiple features encoded along the same direction",
+                "Quantum effects in computation",
+                "Dropout noise",
+                "Attention head pruning"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "A circuit in the context of Transformer interpretability is",
+            "options": [
+                "A GPU kernel",
+                "A small group of weights implementing a specific function",
+                "A voltage regulator",
+                "An attention mask"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Activation patching is used to",
+            "options": [
+                "Repair model weights",
+                "Test the effect of specific activations on outputs",
+                "Quantize the model",
+                "Compute gradients faster"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which technique attempts to discover neurons correlated with specific concepts?",
+            "options": [
+                "Dropout",
+                "Automatic feature labeling",
+                "Synthetic gradient training",
+                "Beam search"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Mechanistic interpretability often examines models at what level?",
+            "options": [
+                "Dataset statistics",
+                "Weight and activation patterns",
+                "Hardware microarchitecture",
+                "User interface"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Why are sparse autoencoders useful for interpretability?",
+            "options": [
+                "They reduce training time",
+                "They encourage disentangled representations",
+                "They increase dataset size",
+                "They compute gradients implicitly"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which method measures how much a model forgets when a feature is ablated?",
+            "options": [
+                "Causal scrubbing",
+                "Perplexity drop",
+                "Cross-entropy loss",
+                "Gradient ascent"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Path patching in Transformer circuits helps identify",
+            "options": [
+                "The GPU kernel used",
+                "Which intermediate paths contribute to behavior",
+                "Optimal hyperparameters",
+                "Scaling law exponents"
+            ],
+            "answer": 1
+        }
+    ],
+    "mixture of experts": [
+        {
+            "question": "In a MoE layer, the gating network outputs what?",
+            "options": [
+                "Expert weights",
+                "Token embeddings",
+                "Gradient momentum",
+                "Batch norms"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Top-k routing selects how many experts per token?",
+            "options": [
+                "All experts",
+                "A fixed number like 2",
+                "A different number each step",
+                "Zero experts"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "One challenge of MoE models during training is",
+            "options": [
+                "Increased parameter sharing",
+                "Load imbalance across experts",
+                "Smaller model size",
+                "No need for parallelism"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Switch Transformers differ from standard MoE by using",
+            "options": [
+                "Expert parallelism",
+                "One expert per token",
+                "Larger vocabularies",
+                "Reinforcement learning"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Routing decisions are typically based on",
+            "options": [
+                "Random choice",
+                "Similarity of token embeddings",
+                "Model depth",
+                "Sequence length"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "During inference, MoE models can reduce compute by",
+            "options": [
+                "Disabling the gating network",
+                "Activating only a subset of experts",
+                "Quantizing to float64",
+                "Repeating tokens"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Expert dropout is used to",
+            "options": [
+                "Increase memory usage",
+                "Regularize the gating network",
+                "Optimize beam search",
+                "Improve tokenization"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Load balancing loss encourages what?",
+            "options": [
+                "All tokens routed to the same expert",
+                "Even distribution of tokens across experts",
+                "Dropping half of the experts",
+                "Increasing batch size"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What does 'token dropping' refer to in some MoE works?",
+            "options": [
+                "Removing tokens with low gating scores",
+                "Deleting experts",
+                "Reducing sequence length",
+                "Applying dropout"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Experts in a MoE layer typically share",
+            "options": [
+                "No parameters",
+                "The feed-forward network architecture but not weights",
+                "Embedding tables",
+                "Optimizer states"
+            ],
+            "answer": 1
+        }
+    ],
+    "pytorch resource accounting": [
+        {
+            "question": "torch.cuda.memory_allocated() reports",
+            "options": [
+                "Total GPU memory",
+                "Memory managed by PyTorch allocator",
+                "CPU RAM usage",
+                "Cache hit rate"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which PyTorch feature frees unused GPU memory without leaving the program?",
+            "options": [
+                "torch.save",
+                "torch.cuda.empty_cache",
+                "torch.distributed.barrier",
+                "torch.jit"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "During mixed precision training, which component consumes extra memory?",
+            "options": [
+                "Grad scaler",
+                "Dataloader",
+                "Optimizer step",
+                "Dropout layer"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "torch.no_grad() is helpful during evaluation because",
+            "options": [
+                "It saves GPU memory by not storing gradients",
+                "It speeds up tokenization",
+                "It increases accuracy",
+                "It uses bfloat16"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "How can you track peak memory usage over time?",
+            "options": [
+                "torch.cuda.max_memory_allocated",
+                "torch.set_default_dtype",
+                "torch.compile",
+                "torch.utils.data"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What does setting torch.backends.cudnn.benchmark=True do?",
+            "options": [
+                "Reduces memory",
+                "Finds optimal convolution algorithms",
+                "Disables kernels",
+                "Forces deterministic ops"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "In distributed data parallel, gradient buckets are used for",
+            "options": [
+                "Fusing gradients before all-reduce",
+                "Saving model checkpoints",
+                "Computing logits",
+                "Generating text"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Why might you use torch.cuda.memory_reserved()?",
+            "options": [
+                "To allocate CPU buffers",
+                "To see total memory including cache",
+                "To perform quantization",
+                "To enable dropout"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Profiling with torch.autograd.profiler is useful for",
+            "options": [
+                "Counting tokens",
+                "Identifying time and memory hotspots",
+                "Downloading datasets",
+                "Computing scaling laws"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "NVTX ranges inserted via torch.cuda.nvtx.range are primarily for",
+            "options": [
+                "Colorful traces in profiling tools",
+                "Batch size scaling",
+                "Error handling",
+                "Input normalization"
+            ],
+            "answer": 0
+        }
+    ],
+    "evaluation": [
+        {
+            "question": "Perplexity measures what aspect of a language model?",
+            "options": [
+                "Inference latency",
+                "Likelihood of test data",
+                "Number of parameters",
+                "Token length"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "BLEU and ROUGE are metrics primarily for",
+            "options": [
+                "Machine translation and summarization quality",
+                "GPU efficiency",
+                "Privacy protection",
+                "Scaling laws"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "The HELM benchmark aims to",
+            "options": [
+                "Provide holistic evaluation across many scenarios",
+                "Optimize batch size",
+                "Reduce compute",
+                "Measure power usage"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Why are human evaluations still important?",
+            "options": [
+                "Automated metrics perfectly capture quality",
+                "They can judge nuances that metrics miss",
+                "They reduce latency",
+                "They eliminate bias"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Zero-shot performance refers to",
+            "options": [
+                "Training without data",
+                "Evaluating on tasks the model was not fine-tuned for",
+                "Using zero parameters",
+                "A loss of zero"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Model calibration measures",
+            "options": [
+                "How accurately probabilities reflect true outcomes",
+                "GPU temperature",
+                "Inference throughput",
+                "Privacy risk"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "Benchmarks like MMLU test what capability?",
+            "options": [
+                "Long-context retrieval",
+                "General knowledge and reasoning",
+                "Code generation only",
+                "Image synthesis"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Which metric is common for evaluating summarization?",
+            "options": [
+                "F1 score",
+                "ROUGE",
+                "WER",
+                "PPL"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "A/B testing in deployment allows developers to",
+            "options": [
+                "Increase token limit",
+                "Compare user engagement across model versions",
+                "Reduce parameters",
+                "Improve GPU utilization"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "Toxicity and bias evaluations are examples of",
+            "options": [
+                "Safety-focused metrics",
+                "Scaling laws",
+                "Compression ratios",
+                "Training objectives"
+            ],
+            "answer": 0
+        }
+    ]
+}
