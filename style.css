@@ -158,3 +158,20 @@ body {
     font-family: "Courier New", monospace;
     white-space: pre;
 }
+
+.scoreboard {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--tile-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--accent-color);
+    max-width: 200px;
+    font-size: 0.9rem;
+}
+
+.scoreboard h3 {
+    margin: 0 0 0.5rem 0;
+}
