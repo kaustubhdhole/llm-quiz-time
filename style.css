@@ -44,6 +44,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 1rem;
+    max-width: calc(100% - 240px);
 }
 
 .topic {
@@ -168,10 +169,37 @@ body {
     border-radius: 8px;
     padding: 1rem;
     color: var(--accent-color);
-    max-width: 200px;
+    max-width: 220px;
     font-size: 0.9rem;
 }
 
+.scoreboard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scoreboard li {
+    margin-bottom: 0.75rem;
+}
+
+.scoreboard li:last-child {
+    margin-bottom: 0;
+}
+
+.scorebar {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--button-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.25rem;
+}
+
+.scorebar-fill {
+    height: 100%;
+    background: var(--accent-color);
+}
 .scoreboard h3 {
     margin: 0 0 0.5rem 0;
 }
