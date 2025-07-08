@@ -134,7 +134,8 @@ function updateScoreboard() {
     Object.keys(score).forEach(topic => {
         const s = score[topic];
         const pct = s.total ? Math.round((s.correct / s.total) * 100) : 0;
-        html += `<li>${topic}: ${pct}% (${s.correct}/${s.total})</li>`;
+        html += `<li>${topic}: ${pct}% (${s.correct}/${s.total})` +
+            `<div class="scorebar"><div class="scorebar-fill" style="width:${pct}%"></div></div></li>`;
     });
     html += '</ul>';
     board.innerHTML = html;
