@@ -17,6 +17,7 @@ Topics now include planning, reasoning, long-context, data valuation, learning r
 ## Usage
 Open `index.html` in your browser. The page fetches questions from
 `questions.json` and displays one randomly.
+Use the moon button in the top-left corner to toggle between day and night modes.
 
 ## Deployment
 The repository includes a GitHub Actions workflow that publishes the contents of
