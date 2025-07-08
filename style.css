@@ -203,3 +203,25 @@ body {
 .scoreboard h3 {
     margin: 0 0 0.5rem 0;
 }
+
+.scoreboard-toggle {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--tile-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+}
+
+.scoreboard-toggle:hover {
+    box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+}
