@@ -28,10 +28,15 @@ async function loadData() {
         btn.addEventListener('click', () => loadQuestion(topic));
         topicButtons[topic] = btn;
         topicsDiv.appendChild(btn);
+
+        // initialize score tracking for each topic
+        score[topic] = { correct: 0, total: 0 };
     });
 
     // Display a random question on initial load
     loadRandomQuestion();
+    // Show initial scoreboard with 0% for all topics
+    updateScoreboard();
 }
 
 function loadRandomQuestion() {
