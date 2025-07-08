@@ -7,6 +7,7 @@ const topicButtons = {};
 const usedQuestions = {};
 const score = {};
 const completedTopics = new Set();
+let scoreboardVisible = true;
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -134,7 +135,7 @@ function checkAnswer(idx) {
 function updateScoreboard() {
     const board = document.getElementById('scoreboard');
     if (!board) return;
-    board.style.display = 'block';
+    board.style.display = scoreboardVisible ? 'block' : 'none';
     let html = '<h3>Performance</h3><ul>';
     Object.keys(score).forEach(topic => {
         const s = score[topic];
@@ -165,6 +166,14 @@ window.addEventListener('DOMContentLoaded', () => {
             } else {
                 loadRandomQuestion();
             }
+        });
+    }
+
+    const boardToggle = document.getElementById('scoreboard-toggle');
+    if (boardToggle) {
+        boardToggle.addEventListener('click', () => {
+            scoreboardVisible = !scoreboardVisible;
+            updateScoreboard();
         });
     }
 });
