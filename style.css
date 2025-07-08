@@ -126,7 +126,8 @@ body {
 .theme-toggle {
     position: absolute;
     top: 0.5rem;
-    left: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: 2rem;
     height: 2rem;
     background: var(--tile-bg);
