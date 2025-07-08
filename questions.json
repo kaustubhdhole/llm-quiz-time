@@ -2561,4 +2561,493 @@
             "elaboration": "To create a tokenizer, a corpus is analyzed to learn which subwords or symbols should make up the vocabulary."
         }
     ]
+    ,
+    "attention mechanism": [
+        {
+            "question": "What does self-attention compute?",
+            "options": [
+                "Interactions within the same sequence",
+                "Context from a separate encoder",
+                "Positional encodings",
+                "Optimizer updates"
+            ],
+            "answer": 0,
+            "hint": "Tokens attend to each other.",
+            "elaboration": "Self-attention calculates interactions among tokens in one sequence, letting each position weigh all others."
+        },
+        {
+            "question": "Multi-head attention allows a model to",
+            "options": [
+                "Share GPU memory across processes",
+                "Attend to information from different subspaces",
+                "Sort sequences in parallel",
+                "Quantize weights automatically"
+            ],
+            "answer": 1,
+            "hint": "Different heads focus on different patterns.",
+            "elaboration": "Each head projects queries, keys, and values separately to capture diverse relationships."
+        },
+        {
+            "question": "Which matrix holds scores before softmax?",
+            "options": [
+                "Query",
+                "Key",
+                "Value",
+                "Compatibility (QK^T)"
+            ],
+            "answer": 3,
+            "hint": "It's the product of queries and keys.",
+            "elaboration": "Attention scores come from multiplying queries with keys before scaling and applying softmax."
+        },
+        {
+            "question": "Causal attention masks out",
+            "options": [
+                "The BOS token only",
+                "Future tokens",
+                "Padding tokens",
+                "All tokens equally"
+            ],
+            "answer": 1,
+            "hint": "It prevents peeking ahead.",
+            "elaboration": "Causal masks block connections to later positions so autoregressive generation works correctly."
+        },
+        {
+            "question": "Cross-attention is commonly used in",
+            "options": [
+                "Language modeling only",
+                "Image preprocessing",
+                "Encoder-decoder architectures",
+                "Dataset sharding"
+            ],
+            "answer": 2,
+            "hint": "Decoders look back at encoder outputs.",
+            "elaboration": "Cross-attention lets a decoder query encoded representations, such as in translation models."
+        },
+        {
+            "question": "Scaled dot-product attention divides by sqrt(d_k) to",
+            "options": [
+                "Reduce gradient noise",
+                "Normalize score magnitude",
+                "Add dropout",
+                "Remove bias terms"
+            ],
+            "answer": 1,
+            "hint": "Avoid very large dot products.",
+            "elaboration": "Dividing by the square root of the key dimension keeps scores in a reasonable range for stable gradients."
+        },
+        {
+            "question": "Relative positional encodings help with",
+            "options": [
+                "Loading pretrained weights",
+                "Tracking token offsets independent of length",
+                "Increasing batch size",
+                "Reducing dataset tokens"
+            ],
+            "answer": 0,
+            "hint": "Positions are specified as distances.",
+            "elaboration": "Relative encodings represent the distance between tokens so models generalize to new sequence lengths."
+        },
+        {
+            "question": "Attention weights sum to one across",
+            "options": [
+                "Keys for each query",
+                "Batches",
+                "Heads",
+                "Layers"
+            ],
+            "answer": 0,
+            "hint": "Each query gives a distribution over keys.",
+            "elaboration": "For a single query vector, the softmax weights over all keys add up to one."
+        },
+        {
+            "question": "Which variant restricts attention to a window around each token?",
+            "options": [
+                "Global attention",
+                "Masked multi-head",
+                "Local attention",
+                "Sparsemax"
+            ],
+            "answer": 2,
+            "hint": "Only neighbors matter.",
+            "elaboration": "Local attention reduces cost by limiting each query to a surrounding window of tokens."
+        },
+        {
+            "question": "In transformers, which component typically follows the attention block?",
+            "options": [
+                "Layer normalization",
+                "Feed-forward network",
+                "Convolution layer",
+                "Embedding table"
+            ],
+            "answer": 3,
+            "hint": "It mixes information per position after attention.",
+            "elaboration": "A position-wise feed-forward network comes after attention to further transform each token."
+        }
+    ],
+    "triton": [
+        {
+            "question": "Triton is primarily",
+            "options": [
+                "A debugging tool",
+                "A dataset platform",
+                "A language and compiler for efficient GPU kernels",
+                "A CPU scheduler"
+            ],
+            "answer": 2,
+            "hint": "It lets you program custom kernels easily.",
+            "elaboration": "Triton provides a Python-based language and compiler for writing optimized GPU kernels without raw CUDA."
+        },
+        {
+            "question": "Which company originally created Triton?",
+            "options": [
+                "Google",
+                "OpenAI",
+                "Meta",
+                "Intel"
+            ],
+            "answer": 1,
+            "hint": "It started as an open-source project from a major AI lab.",
+            "elaboration": "Triton was initially developed and released by OpenAI before wider adoption."
+        },
+        {
+            "question": "Triton kernels are authored in",
+            "options": [
+                "Python with special decorators",
+                "C#",
+                "CUDA assembly",
+                "Go"
+            ],
+            "answer": 0,
+            "hint": "You write kernels in a restricted Python dialect.",
+            "elaboration": "Kernel functions are defined in Python and compiled just-in-time for the GPU."
+        },
+        {
+            "question": "A key advantage of Triton over raw CUDA is",
+            "options": [
+                "Transparent distributed training",
+                "Built-in model compression",
+                "Complex API calls",
+                "Higher-level abstractions while staying fast"
+            ],
+            "answer": 3,
+            "hint": "It aims to be easier than CUDA while performing well.",
+            "elaboration": "Triton simplifies GPU programming by providing abstractions that compile to high-performance kernels."
+        },
+        {
+            "question": "Triton kernels compile down to",
+            "options": [
+                "PTX",
+                "OpenCL",
+                "WebGPU",
+                "TensorFlow graphs"
+            ],
+            "answer": 0,
+            "hint": "They ultimately run through NVIDIA's toolchain.",
+            "elaboration": "Triton emits PTX code which is assembled for execution on NVIDIA GPUs."
+        },
+        {
+            "question": "What does the @triton.jit decorator do?",
+            "options": [
+                "Enable CPU multithreading",
+                "Compile a function into a GPU kernel",
+                "Serialize tensors to disk",
+                "Launch a Docker container"
+            ],
+            "answer": 1,
+            "hint": "It's how you turn a Python function into a kernel.",
+            "elaboration": "Decorating a function with @triton.jit compiles it just-in-time into a GPU kernel callable from Python."
+        },
+        {
+            "question": "Which feature helps Triton achieve high performance?",
+            "options": [
+                "Explicit control over memory layouts",
+                "Automatic gradient clipping",
+                "Disk I/O caching",
+                "Quantum acceleration"
+            ],
+            "answer": 0,
+            "hint": "Developers manage how data is laid out in memory.",
+            "elaboration": "Triton lets you specify memory layouts directly, enabling kernels that fully utilize bandwidth."
+        },
+        {
+            "question": "Triton is often used to implement",
+            "options": [
+                "Web server routing",
+                "Audio playback loops",
+                "Custom GPU ops like fused softmax",
+                "Mobile apps"
+            ],
+            "answer": 2,
+            "hint": "Think of specialized deep learning primitives.",
+            "elaboration": "Developers use Triton to write custom GPU operations such as fused attention or softmax kernels."
+        },
+        {
+            "question": "Kernel parameters in Triton can be marked as",
+            "options": [
+                "Python type hints",
+                "Gradient tensors",
+                "Compile-time constants",
+                "CSV fields"
+            ],
+            "answer": 2,
+            "hint": "They are known during compilation for optimization.",
+            "elaboration": "Parameters annotated as tl.constexpr become compile-time constants, enabling better code generation."
+        },
+        {
+            "question": "To launch a Triton kernel you typically call",
+            "options": [
+                "triton.run_kernel()",
+                "python3 kernel.py",
+                "cudaLaunchKernel",
+                "kernel[grid](args)"
+            ],
+            "answer": 3,
+            "hint": "The call syntax uses square brackets with a grid spec.",
+            "elaboration": "Triton kernels are invoked with the grid configuration in brackets followed by the argument list."
+        }
+    ],
+    "cuda": [
+        {
+            "question": "Which language is primarily used to program CUDA kernels?",
+            "options": [
+                "Python",
+                "C/C++ with CUDA extensions",
+                "JavaScript",
+                "Fortran"
+            ],
+            "answer": 1,
+            "hint": "Most official examples use this compiled language.",
+            "elaboration": "CUDA mainly extends C/C++ with keywords that define GPU kernels and manage memory."
+        },
+        {
+            "question": "The CUDA programming model organizes threads into",
+            "options": [
+                "Blocks and grids",
+                "Processes and fibers",
+                "Segments and banks",
+                "Frames and pages"
+            ],
+            "answer": 0,
+            "hint": "Each kernel launch specifies these dimensions.",
+            "elaboration": "Threads are grouped into blocks which form a grid, mapping computation onto the GPU hardware."
+        },
+        {
+            "question": "A warp in CUDA refers to",
+            "options": [
+                "A GPU memory region",
+                "An atomic operation",
+                "32 threads executed in lockstep",
+                "A scheduling algorithm"
+            ],
+            "answer": 2,
+            "hint": "It's the unit of SIMT execution.",
+            "elaboration": "A warp is typically 32 threads that the scheduler issues together on an SM."
+        },
+        {
+            "question": "Shared memory in CUDA has latency closest to",
+            "options": [
+                "Global memory",
+                "Registers",
+                "Host DRAM",
+                "Flash storage"
+            ],
+            "answer": 1,
+            "hint": "It's much faster than global memory.",
+            "elaboration": "Shared memory resides on-chip with latency only a few cycles, similar to registers."
+        },
+        {
+            "question": "Which syntax launches a kernel with grid and block dimensions?",
+            "options": [
+                "my_kernel<<<grid, block>>>(args)",
+                "cudaMalloc(args)",
+                "gcc -o kernel",
+                "cuda_sync()"
+            ],
+            "answer": 0,
+            "hint": "It's specific to CUDA's execution configuration syntax.",
+            "elaboration": "A CUDA kernel launch uses the triple-angle-bracket syntax to specify grid and block sizes."
+        },
+        {
+            "question": "CUDA streams allow",
+            "options": [
+                "Implicit memory allocation",
+                "Faster internet downloads",
+                "Automatic warp scheduling",
+                "Concurrent kernel execution"
+            ],
+            "answer": 3,
+            "hint": "They let you overlap kernels and copies.",
+            "elaboration": "Streams provide independent command queues so kernels and memory copies can run concurrently." 
+        },
+        {
+            "question": "The CUDA runtime API primarily handles",
+            "options": [
+                "Debug logging",
+                "Machine translation",
+                "Kernel launches and memory management",
+                "Database queries"
+            ],
+            "answer": 2,
+            "hint": "It wraps lower level driver calls.",
+            "elaboration": "The runtime API simplifies launching kernels and managing GPU memory compared to the driver interface."
+        },
+        {
+            "question": "Unified memory in CUDA enables",
+            "options": [
+                "Automatic kernel fusion",
+                "Faster random number generation",
+                "Global synchronization across GPUs",
+                "A shared address space between CPU and GPU"
+            ],
+            "answer": 3,
+            "hint": "CPU and GPU can access the same virtual address space.",
+            "elaboration": "Unified memory provides a single address space so data can migrate between host and device transparently."
+        },
+        {
+            "question": "nvcc is the",
+            "options": [
+                "GPU debugger",
+                "Device profiler",
+                "CUDA compiler driver",
+                "Hardware emulator"
+            ],
+            "answer": 2,
+            "hint": "It invokes host and device compilers.",
+            "elaboration": "nvcc compiles CUDA C/C++ sources by coordinating the host compiler and PTX generation." 
+        },
+        {
+            "question": "cuBLAS is an example of",
+            "options": [
+                "A game engine",
+                "A GPU-accelerated BLAS library",
+                "A web server",
+                "A compression tool"
+            ],
+            "answer": 1,
+            "hint": "It provides fast matrix multiplication.",
+            "elaboration": "cuBLAS is NVIDIA's implementation of the Basic Linear Algebra Subprograms optimized for GPUs." 
+        }
+    ],
+    "faster attention": [
+        {
+            "question": "FlashAttention improves efficiency by",
+            "options": [
+                "Computing attention in tiled blocks to reduce memory reads",
+                "Pruning all heads",
+                "Switching to CPU",
+                "Using half-precision only"
+            ],
+            "answer": 0,
+            "hint": "Tiles keep data in GPU registers.",
+            "elaboration": "FlashAttention breaks the computation into blocks so key/value data stays in fast memory, cutting bandwidth."
+        },
+        {
+            "question": "Which library implements optimized attention kernels for PyTorch?",
+            "options": [
+                "NumPy",
+                "cuDNN",
+                "xFormers",
+                "libjpeg"
+            ],
+            "answer": 2,
+            "hint": "It's a Facebook-backed project of fast operators.",
+            "elaboration": "xFormers includes a collection of highly optimized attention kernels used to speed up transformers." 
+        },
+        {
+            "question": "PagedAttention in vLLM allows",
+            "options": [
+                "Long sequences from many users with minimal memory fragmentation",
+                "Automatic dataset shuffling",
+                "Model quantization",
+                "Grammar corrections"
+            ],
+            "answer": 0,
+            "hint": "It manages key/value memory like virtual memory.",
+            "elaboration": "PagedAttention allocates key/value buffers in pages so multiple long prompts can coexist efficiently." 
+        },
+        {
+            "question": "One way to approximate attention more cheaply is",
+            "options": [
+                "Random feature methods",
+                "Increasing hidden size",
+                "Zeroing gradients",
+                "Freezing embeddings"
+            ],
+            "answer": 0,
+            "hint": "Kernel methods can approximate softmax.",
+            "elaboration": "Random feature approaches approximate the softmax kernel, reducing the quadratic cost of full attention."
+        },
+        {
+            "question": "Grouped-query attention primarily reduces",
+            "options": [
+                "Embedding lookups",
+                "Separate key/value projections per head",
+                "Layer normalization steps",
+                "Token embeddings"
+            ],
+            "answer": 1,
+            "hint": "Queries share key/value pairs.",
+            "elaboration": "By sharing key/value projections among groups of heads, grouped-query attention lowers memory and compute."
+        },
+        {
+            "question": "FlashAttention 2 achieves speedups partly through",
+            "options": [
+                "Switching from GPUs to CPUs",
+                "Asynchronous Python loops",
+                "Adding dropout",
+                "Register-level tiling"
+            ],
+            "answer": 3,
+            "hint": "It further reduces off-chip memory traffic.",
+            "elaboration": "Register-level tiling keeps more data in registers, enabling even faster attention kernels." 
+        },
+        {
+            "question": "BigBird and Longformer speed up attention using",
+            "options": [
+                "Full dense matrices",
+                "Only feed-forward layers",
+                "Random and local sparse patterns",
+                "RNN replacements"
+            ],
+            "answer": 2,
+            "hint": "They combine global and windowed connections.",
+            "elaboration": "These models use sparse patterns that connect tokens locally and randomly, lowering complexity." 
+        },
+        {
+            "question": "FlashAttention avoids which costly operation?",
+            "options": [
+                "Recomputing softmax denominators",
+                "Reading and writing to slower global memory",
+                "Using GPUs",
+                "Quantizing weights"
+            ],
+            "answer": 1,
+            "hint": "The kernels minimize trips to DRAM.",
+            "elaboration": "By keeping intermediate results in on-chip memory, FlashAttention reduces global memory accesses." 
+        },
+        {
+            "question": "Which hardware feature can accelerate attention?",
+            "options": [
+                "FP16 matrix multiply units",
+                "High-bandwidth memory",
+                "L2 caching",
+                "TensorFloat-32 acceleration"
+            ],
+            "answer": 3,
+            "hint": "Recent NVIDIA GPUs add this mode for Tensor Cores.",
+            "elaboration": "TensorFloat-32 uses tensor cores to multiply matrices quickly while maintaining reasonable precision." 
+        },
+        {
+            "question": "Efficient attention libraries often fuse",
+            "options": [
+                "Dropout and weight decay",
+                "Softmax and matrix multiplication",
+                "Gradient clipping and Adam",
+                "Embedding lookup and tokenization"
+            ],
+            "answer": 1,
+            "hint": "Fusing operations reduces memory traffic.",
+            "elaboration": "Combining the softmax with the preceding matrix multiplication saves memory bandwidth and improves speed." 
+        }
+    ]
 }
