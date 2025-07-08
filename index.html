@@ -1,39 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLM Quiz Time</title>
     <!-- Ensure paths resolve when served from a repository subpath -->
-    <base href="/llm-quiz-time/" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+    <base href="/llm-quiz-time/">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="container">
-      <button id="theme-toggle" class="theme-toggle" title="Toggle Day/Night">
-        🌙
-      </button>
-      <pre class="ascii-art">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Day/Night">🌙</button>
+        <pre class="ascii-art">
 -+-+-+ +-+-+-+-+ +-+-+-+-+
 L L M   Q u i z   T i m e 
 -+-+-+ +-+-+-+-+ +-+-+-+-+
-        </pre
-      >
-      <div class="topics" id="topics"></div>
-      <div class="quiz-tile" id="quiz">
-        <button id="refresh-btn" class="refresh-btn" title="New Question">
-          &#8635;
-        </button>
-        <div class="question" id="question"></div>
-        <div class="options" id="options"></div>
-        <div class="result" id="result"></div>
-      </div>
-      <p class="note">
-        Note that Questions and Answers are AI generated, and may contain
-        hallucinations.
-      </p>
-      <div class="scoreboard" id="scoreboard"></div>
+        </pre>
+        <div class="topics" id="topics"></div>
+        <div class="quiz-tile" id="quiz">
+            <button id="refresh-btn" class="refresh-btn" title="New Question">&#8635;</button>
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <div class="result" id="result"></div>
+        </div>
+        <div class="scoreboard" id="scoreboard"></div>
+        <p class="note">Note that Questions and Answers are AI generated, and may contain hallucinations. </p>
     </div>
-    <script src="app.js"></script>
-  </body>
+<script src="app.js"></script>
+</body>
 </html>
