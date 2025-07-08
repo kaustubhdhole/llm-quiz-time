@@ -5,6 +5,15 @@ let currentElaboration = '';
 let currentTopic = null;
 const topicButtons = {};
 
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+}
+
 async function loadData() {
     const res = await fetch('questions.json');
     questions = await res.json();
@@ -62,7 +71,7 @@ function loadQuestion(topic) {
 function checkAnswer(idx) {
     const resultDiv = document.getElementById('result');
     if (idx === currentAnswer) {
-        resultDiv.style.color = '#39ff14';
+        resultDiv.style.color = 'var(--accent-color)';
         resultDiv.innerHTML = `&#10004; Correct! ${currentElaboration}`;
     } else {
         resultDiv.style.color = 'red';
@@ -72,6 +81,15 @@ function checkAnswer(idx) {
 
 window.addEventListener('DOMContentLoaded', () => {
     loadData();
+    const storedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(storedTheme);
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(current);
+        });
+    }
     const refresh = document.getElementById('refresh-btn');
     if (refresh) {
         refresh.addEventListener('click', () => {
