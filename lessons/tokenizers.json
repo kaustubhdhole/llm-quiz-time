@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Byte pair encoding (BPE) works by",
+    "options": [
+      "Merging frequent pairs of symbols",
+      "Initializing weights",
+      "Sorting dataset files",
+      "Applying dropout"
+    ],
+    "answer": 0,
+    "hint": "It repeatedly joins the most common pairs.",
+    "elaboration": "BPE builds a vocabulary by iteratively merging the most frequent adjacent characters or bytes."
+  },
+  {
+    "question": "SentencePiece can operate directly on",
+    "options": [
+      "Raw text without pretokenization",
+      "GPU tensors",
+      "HTML pages",
+      "Graphical images"
+    ],
+    "answer": 0,
+    "hint": "No language-specific tokenizer needed first.",
+    "elaboration": "SentencePiece learns subword units from raw text, avoiding the need for prior tokenization or language rules."
+  },
+  {
+    "question": "A larger vocabulary size generally means",
+    "options": [
+      "Shorter sequences of tokens",
+      "Fewer model parameters",
+      "Lower memory usage",
+      "No subwords"
+    ],
+    "answer": 0,
+    "hint": "More words are captured as single tokens.",
+    "elaboration": "With more vocabulary tokens, text can be represented in fewer tokens on average, though embeddings grow."
+  },
+  {
+    "question": "Tokenization affects",
+    "options": [
+      "How the model sees text input",
+      "GPU clock speed",
+      "Color rendering",
+      "Kernel version"
+    ],
+    "answer": 0,
+    "hint": "It's the first step before encoding.",
+    "elaboration": "The choice of tokenization determines how words and characters are split into model inputs."
+  },
+  {
+    "question": "Detokenization refers to",
+    "options": [
+      "Converting tokens back to text",
+      "Removing dropout",
+      "Halting training",
+      "Resetting weights"
+    ],
+    "answer": 0,
+    "hint": "Reverse of the encoding step.",
+    "elaboration": "After generation, tokens are mapped back into human-readable text through the detokenization process."
+  },
+  {
+    "question": "Subword tokenization helps handle",
+    "options": [
+      "Rare or unseen words",
+      "More consistent capitalization",
+      "Precise whitespace removal",
+      "Fixed-length n-grams"
+    ],
+    "answer": 0,
+    "hint": "Break words into pieces.",
+    "elaboration": "By representing words as smaller units, subword methods can encode new or rare words not seen during training."
+  },
+  {
+    "question": "The BOS token stands for",
+    "options": [
+      "Beginning of sequence",
+      "Batch of samples",
+      "Binary optimized source",
+      "Base operating system"
+    ],
+    "answer": 0,
+    "hint": "It marks where text starts.",
+    "elaboration": "Special tokens like BOS and EOS delimit the start and end of sequences for the model."
+  },
+  {
+    "question": "Unigram language model tokenization chooses",
+    "options": [
+      "A probabilistic set of subwords",
+      "Only whole words",
+      "GPU-friendly binaries",
+      "Deterministic rounding"
+    ],
+    "answer": 0,
+    "hint": "It selects a vocabulary by likelihood.",
+    "elaboration": "The unigram model in SentencePiece picks subword units based on maximizing overall data likelihood."
+  },
+  {
+    "question": "When a tokenizer is poorly aligned with the data, models may",
+    "options": [
+      "Waste capacity modeling bad splits",
+      "Train faster automatically",
+      "Require no embeddings",
+      "Run at infinite speed"
+    ],
+    "answer": 0,
+    "hint": "Bad segmentation hurts efficiency.",
+    "elaboration": "Misaligned tokenization can produce awkward splits that the model wastes parameters on, reducing quality."
+  },
+  {
+    "question": "Tokenizer training often involves",
+    "options": [
+      "Building a vocabulary from representative text",
+      "Learning token embeddings",
+      "Estimating morphological rules",
+      "Compressing model checkpoints"
+    ],
+    "answer": 0,
+    "hint": "Collect text and find frequent patterns.",
+    "elaboration": "To create a tokenizer, a corpus is analyzed to learn which subwords or symbols should make up the vocabulary."
+  }
+]

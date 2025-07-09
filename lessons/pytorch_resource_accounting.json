@@ -1,0 +1,122 @@
+[
+  {
+    "question": "torch.cuda.memory_allocated() reports",
+    "options": [
+      "Total GPU memory",
+      "Memory managed by PyTorch allocator",
+      "CPU RAM usage",
+      "Cache hit rate"
+    ],
+    "answer": 1,
+    "hint": "It doesn't include unused cached memory.",
+    "elaboration": "torch.cuda.memory_allocated() reports memory managed by PyTorch's allocator. It excludes memory held by other libraries or the driver."
+  },
+  {
+    "question": "Which PyTorch feature frees unused GPU memory without leaving the program?",
+    "options": [
+      "torch.save",
+      "torch.cuda.empty_cache",
+      "torch.distributed.barrier",
+      "torch.jit"
+    ],
+    "answer": 1,
+    "hint": "Useful after large tensors are deleted.",
+    "elaboration": "torch.cuda.empty_cache frees unused GPU memory without exiting. This can help avoid out-of-memory errors when tensors are deleted."
+  },
+  {
+    "question": "During mixed precision training, which component consumes extra memory?",
+    "options": [
+      "Grad scaler",
+      "Dataloader",
+      "Optimizer step",
+      "Dropout layer"
+    ],
+    "answer": 0,
+    "hint": "It keeps track of dynamic loss scaling.",
+    "elaboration": "The grad scaler consumes extra memory in mixed precision training. It stores scaling factors to prevent underflow when using float16."
+  },
+  {
+    "question": "torch.no_grad() is helpful during evaluation because",
+    "options": [
+      "It saves GPU memory by not storing gradients",
+      "It speeds up tokenization",
+      "It increases accuracy",
+      "It uses bfloat16"
+    ],
+    "answer": 0,
+    "hint": "Gradients aren't needed for inference.",
+    "elaboration": "torch.no_grad() saves memory by not storing gradients during eval. It also slightly speeds up inference since no backward pass is needed."
+  },
+  {
+    "question": "How can you track peak memory usage over time?",
+    "options": [
+      "torch.cuda.max_memory_allocated",
+      "torch.set_default_dtype",
+      "torch.compile",
+      "torch.utils.data"
+    ],
+    "answer": 0,
+    "hint": "There is an API returning the high watermark.",
+    "elaboration": "torch.cuda.max_memory_allocated tracks peak memory usage. Monitoring this helps diagnose leaks or inefficiencies."
+  },
+  {
+    "question": "What does setting torch.backends.cudnn.benchmark=True do?",
+    "options": [
+      "Reduces memory",
+      "Finds optimal convolution algorithms",
+      "Disables kernels",
+      "Forces deterministic ops"
+    ],
+    "answer": 1,
+    "hint": "It times kernels to find the fastest convolution.",
+    "elaboration": "torch.backends.cudnn.benchmark=True finds optimal convolution algorithms. It times different kernels and caches the fastest choice."
+  },
+  {
+    "question": "In distributed data parallel, gradient buckets are used for",
+    "options": [
+      "Fusing gradients before all-reduce",
+      "Saving model checkpoints",
+      "Computing logits",
+      "Generating text"
+    ],
+    "answer": 0,
+    "hint": "They reduce communication overhead.",
+    "elaboration": "Gradient buckets fuse gradients before all-reduce in DDP. This reduces the number of communication operations."
+  },
+  {
+    "question": "Why might you use torch.cuda.memory_reserved()?",
+    "options": [
+      "To allocate CPU buffers",
+      "To see total memory including cache",
+      "To perform quantization",
+      "To enable dropout"
+    ],
+    "answer": 1,
+    "hint": "Shows memory the allocator reserved from the driver.",
+    "elaboration": "torch.cuda.memory_reserved() shows total reserved memory including cache. It can reveal fragmentation or overhead beyond active tensors."
+  },
+  {
+    "question": "Profiling with torch.autograd.profiler is useful for",
+    "options": [
+      "Counting tokens",
+      "Identifying time and memory hotspots",
+      "Downloading datasets",
+      "Computing scaling laws"
+    ],
+    "answer": 1,
+    "hint": "It records operation traces.",
+    "elaboration": "torch.autograd.profiler helps identify time and memory hotspots. It records detailed traces of operations for optimization."
+  },
+  {
+    "question": "NVTX ranges inserted via torch.cuda.nvtx.range are primarily for",
+    "options": [
+      "Colorful traces in profiling tools",
+      "Batch size scaling",
+      "Error handling",
+      "Input normalization"
+    ],
+    "answer": 0,
+    "hint": "They annotate events on the timeline.",
+    "elaboration": "NVTX ranges create colorful traces for profiling tools. They mark regions of code to visualize in tools like Nsight or Chrome tracing."
+  }
+]

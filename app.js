@@ -9,6 +9,8 @@ const score = {};
 const completedTopics = new Set();
 let scoreboardVisible = false;
 
+const lessonData = {};
+
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -147,8 +149,79 @@ function updateScoreboard() {
     board.innerHTML = html;
 }
 
+function initTabs() {
+    document.querySelectorAll('.tab-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            link.classList.add('active');
+            document.getElementById(link.dataset.tab).classList.add('active');
+        });
+    });
+}
+
+function createCard(q) {
+    const card = document.createElement('div');
+    card.className = 'qa-card';
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question';
+    qDiv.textContent = q.question;
+    const opts = document.createElement('div');
+    opts.className = 'options';
+    const result = document.createElement('div');
+    result.className = 'result';
+    q.options.forEach((opt, idx) => {
+        const od = document.createElement('div');
+        od.className = 'option';
+        od.textContent = opt;
+        od.addEventListener('click', () => {
+            if (result.textContent) return;
+            if (idx === q.answer) {
+                result.style.color = 'var(--accent-color)';
+                result.innerHTML = `&#10004; Correct! ${q.elaboration || ''}`;
+            } else {
+                result.style.color = 'red';
+                result.innerHTML = `&#10008; ${q.hint || ''}`;
+            }
+        });
+        opts.appendChild(od);
+    });
+    card.appendChild(qDiv);
+    card.appendChild(opts);
+    card.appendChild(result);
+    return card;
+}
+
+async function loadLesson(name, container) {
+    if (container.dataset.loaded) return;
+    const res = await fetch(`lessons/${name}.json`);
+    const data = await res.json();
+    lessonData[name] = data;
+    data.forEach(q => container.appendChild(createCard(q)));
+    container.dataset.loaded = 'true';
+}
+
+function initLessons() {
+    document.querySelectorAll('.lesson-header').forEach(header => {
+        header.addEventListener('click', async () => {
+            const content = header.nextElementSibling;
+            const lesson = header.dataset.lesson;
+            const open = content.style.display === 'flex';
+            document.querySelectorAll('.lesson-content').forEach(c => c.style.display = 'none');
+            document.querySelectorAll('.lesson-header').forEach(h => h.classList.remove('active'));
+            if (!open) {
+                header.classList.add('active');
+                content.style.display = 'flex';
+                await loadLesson(lesson, content);
+            }
+        });
+    });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     loadData();
+    initTabs();
+    initLessons();
     const storedTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(storedTheme);
     const themeToggle = document.getElementById('theme-toggle');

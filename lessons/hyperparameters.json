@@ -1,0 +1,72 @@
+[
+    {
+        "question": "Which hyperparameter controls the strength of weight decay in L2 regularization?",
+        "options": ["Batch size", "Weight decay coefficient", "Dropout rate", "Gradient clip threshold"],
+        "answer": 1,
+        "hint": "It's sometimes called the lambda parameter in optimization.",
+        "elaboration": "The weight decay coefficient scales the L2 penalty added to the loss, encouraging smaller parameter values." 
+    },
+    {
+        "question": "What aspect of training is most directly affected by batch size?",
+        "options": ["Model depth", "Gradient noise and memory usage", "Attention head count", "Vocabulary size"],
+        "answer": 1,
+        "hint": "Larger batches reduce variance but need more GPU RAM.",
+        "elaboration": "Batch size sets how many examples are processed before an optimizer step, influencing gradient stability and required memory." 
+    },
+    {
+        "question": "Increasing the number of attention heads mainly aims to",
+        "options": ["Speed up convolution", "Capture diverse relationships", "Reduce vocabulary", "Store more activations"],
+        "answer": 1,
+        "hint": "More heads let the model attend to different subspaces.",
+        "elaboration": "Multi-head attention splits queries into multiple projections so each head can learn unique patterns between tokens." 
+    },
+    {
+        "question": "Doubling the learning rate without other changes can often lead to",
+        "options": ["Underfitting", "Exploding loss and divergence", "Instant convergence", "Exact same behavior"],
+        "answer": 1,
+        "hint": "Too big steps can overshoot minima.",
+        "elaboration": "A larger learning rate might cause training to diverge as updates skip over the optimum or oscillate wildly." 
+    },
+    {
+        "question": "Gradient clipping is used to",
+        "options": ["Zero out small gradients", "Prevent extremely large updates", "Increase batch size", "Change weight decay"],
+        "answer": 1,
+        "hint": "It enforces a maximum norm or value on gradients.",
+        "elaboration": "Clipping limits gradient magnitudes, which helps stabilize training when rare spikes occur, especially in recurrent networks." 
+    },
+    {
+        "question": "A higher dropout rate is typically employed to",
+        "options": ["Speed up inference", "Provide stronger regularization", "Increase model width", "Decrease sequence length"],
+        "answer": 1,
+        "hint": "It randomly disables more neurons.",
+        "elaboration": "Dropout randomly masks activations during training; a higher rate forces the model to rely less on any single feature." 
+    },
+    {
+        "question": "Warmup steps for the learning rate schedule are used to",
+        "options": ["Randomize token order", "Gradually ramp the learning rate", "Shrink the model", "Freeze embeddings"],
+        "answer": 1,
+        "hint": "Helps avoid instability in the first iterations.",
+        "elaboration": "A small learning rate at the beginning allows the optimizer to start in a stable manner before reaching the target rate." 
+    },
+    {
+        "question": "Label smoothing modifies the target distribution by",
+        "options": ["Adding noise to inputs", "Assigning some probability to wrong classes", "Increasing batch normalization", "Scaling gradients"],
+        "answer": 1,
+        "hint": "It avoids putting the entire probability on the correct label.",
+        "elaboration": "Label smoothing replaces one-hot targets with a mixture that reserves a small amount of probability for incorrect classes." 
+    },
+    {
+        "question": "In the Adam optimizer, the beta1 parameter controls",
+        "options": ["Step size", "Decay rate for the first moment estimate", "Number of epochs", "Batch normalization momentum"],
+        "answer": 1,
+        "hint": "It's the exponential moving average of the gradients.",
+        "elaboration": "Beta1 determines how quickly the running average of gradients adapts to new values; lower values react faster." 
+    },
+    {
+        "question": "The step size used by a learning rate scheduler typically refers to",
+        "options": ["How often the learning rate is updated", "Embedding dimension", "Number of attention heads", "Dropout seed"],
+        "answer": 0,
+        "hint": "Some schedulers reduce the rate every fixed number of steps.",
+        "elaboration": "Schedulers like StepLR decrease the learning rate after a set number of optimizer steps or epochs specified by the step size." 
+    }
+]
