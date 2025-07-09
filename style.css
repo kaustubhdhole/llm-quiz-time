@@ -171,6 +171,7 @@ body {
     color: var(--accent-color);
     max-width: 220px;
     font-size: 0.9rem;
+    display: none;
 }
 
 .scoreboard ul {

@@ -7,7 +7,7 @@ const topicButtons = {};
 const usedQuestions = {};
 const score = {};
 const completedTopics = new Set();
-let scoreboardVisible = true;
+let scoreboardVisible = false;
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
