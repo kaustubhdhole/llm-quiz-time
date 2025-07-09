@@ -9,24 +9,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Day/Night">🌙</button>
-        <pre class="ascii-art">
--+-+-+ +-+-+-+-+ +-+-+-+-+
-L L M   Q u i z   T i m e 
--+-+-+ +-+-+-+-+ +-+-+-+-+
-        </pre>
-        <div class="topics" id="topics"></div>
-        <div class="quiz-tile" id="quiz">
-            <button id="refresh-btn" class="refresh-btn" title="New Question">&#8635;</button>
-            <div class="question" id="question"></div>
-            <div class="options" id="options"></div>
-            <div class="result" id="result"></div>
-        </div>
-        <div class="scoreboard" id="scoreboard"></div>
-        <button id="scoreboard-toggle" class="scoreboard-toggle" title="Toggle Performance">📊</button>
-        <p class="note">Note that Questions and Answers are AI generated, and may contain hallucinations. </p>
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Day/Night">🌙</button>
+    <div class="tabs">
+        <div class="tab-link active" data-tab="quiz-tab">LLM Quiz Time</div>
+        <div class="tab-link" data-tab="science-tab">The Science Behind LLM Breakthroughs</div>
     </div>
-<script src="app.js"></script>
+    <div id="quiz-tab" class="tab-content active">
+        <div class="container">
+            <pre class="ascii-art">
+-+-+-+ +-+-+-+-+ +-+-+-+-+
+L L M   Q u i z   T i m e
+-+-+-+ +-+-+-+-+ +-+-+-+-+
+            </pre>
+            <div class="topics" id="topics"></div>
+            <div class="quiz-tile" id="quiz">
+                <button id="refresh-btn" class="refresh-btn" title="New Question">&#8635;</button>
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div class="result" id="result"></div>
+            </div>
+            <div class="scoreboard" id="scoreboard"></div>
+            <button id="scoreboard-toggle" class="scoreboard-toggle" title="Toggle Performance">📊</button>
+            <p class="note">Note that Questions and Answers are AI generated, and may contain hallucinations. </p>
+        </div>
+    </div>
+    <div id="science-tab" class="tab-content">
+        <div class="lessons">
+            <div class="lesson">
+                <div class="lesson-header" data-lesson="tokenizers">Do you know your tokenizers well?</div>
+                <div class="lesson-content gallery" id="tokenizers"></div>
+            </div>
+            <div class="lesson">
+                <div class="lesson-header" data-lesson="pytorch_resource_accounting">Let's hold you accountable for Pytorch Resource Accounting</div>
+                <div class="lesson-content gallery" id="pytorch_resource_accounting"></div>
+            </div>
+            <div class="lesson">
+                <div class="lesson-header" data-lesson="hyperparameters">Let's see what are your parameters on Hyperparameters!</div>
+                <div class="lesson-content gallery" id="hyperparameters"></div>
+            </div>
+        </div>
+        <p class="note">Note that Questions and Answers are AI generated, and may contain hallucinations.</p>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
