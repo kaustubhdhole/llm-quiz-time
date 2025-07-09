@@ -270,19 +270,12 @@ body {
     cursor: pointer;
     width: 90%;
     max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
 .lesson-header.active {
     background: var(--accent-color);
     color: var(--accent-text-color);
-}
-
-.lessons .lesson:nth-child(2) .lesson-header {
-    background: #0d6efd;
-    color: #fff;
 }
 
 .lesson-content {
@@ -295,8 +288,6 @@ body {
     overflow-x: auto;
     gap: 1rem;
     padding: 1rem 0;
-    width: 90%;
-    margin: 0 auto;
 }
 
 .qa-card {
@@ -304,7 +295,7 @@ body {
     box-shadow: 0 0 5px var(--accent-color);
     border-radius: 10px;
     padding: 1rem;
-    width: 300px;
+    min-width: 280px;
     flex-shrink: 0;
 }
 
@@ -325,19 +316,6 @@ body {
 .qa-card .option:hover {
     background: var(--accent-color);
     color: var(--accent-text-color);
-}
-
-.lesson-btn {
-    white-space: nowrap;
-}
-
-.lesson-content .carousel {
-    width: 100%;
-}
-
-.lesson-content .carousel-item {
-    display: flex;
-    justify-content: center;
 }
 
 .qa-card .result {
