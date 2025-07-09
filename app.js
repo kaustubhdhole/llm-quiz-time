@@ -197,7 +197,41 @@ async function loadLesson(name, container) {
     const res = await fetch(`lessons/${name}.json`);
     const data = await res.json();
     lessonData[name] = data;
-    data.forEach(q => container.appendChild(createCard(q)));
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel slide';
+    carousel.id = `${name}-carousel`;
+    carousel.setAttribute('data-bs-ride', 'carousel');
+
+    const inner = document.createElement('div');
+    inner.className = 'carousel-inner';
+
+    data.forEach((q, idx) => {
+        const item = document.createElement('div');
+        item.className = 'carousel-item' + (idx === 0 ? ' active' : '');
+        item.appendChild(createCard(q));
+        inner.appendChild(item);
+    });
+
+    carousel.appendChild(inner);
+
+    const prev = document.createElement('button');
+    prev.className = 'carousel-control-prev';
+    prev.type = 'button';
+    prev.setAttribute('data-bs-target', '#' + carousel.id);
+    prev.setAttribute('data-bs-slide', 'prev');
+    prev.innerHTML = '<span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>';
+
+    const next = document.createElement('button');
+    next.className = 'carousel-control-next';
+    next.type = 'button';
+    next.setAttribute('data-bs-target', '#' + carousel.id);
+    next.setAttribute('data-bs-slide', 'next');
+    next.innerHTML = '<span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>';
+
+    carousel.appendChild(prev);
+    carousel.appendChild(next);
+
+    container.appendChild(carousel);
     container.dataset.loaded = 'true';
 }
 
@@ -206,13 +240,19 @@ function initLessons() {
         header.addEventListener('click', async () => {
             const content = header.nextElementSibling;
             const lesson = header.dataset.lesson;
-            const open = content.style.display === 'flex';
+            const open = content.style.display === 'block';
             document.querySelectorAll('.lesson-content').forEach(c => c.style.display = 'none');
-            document.querySelectorAll('.lesson-header').forEach(h => h.classList.remove('active'));
+            document.querySelectorAll('.lesson-header').forEach(h => {
+                h.classList.remove('active');
+                const btn = h.querySelector('.lesson-btn');
+                if (btn) btn.textContent = 'Open';
+            });
             if (!open) {
                 header.classList.add('active');
-                content.style.display = 'flex';
+                content.style.display = 'block';
                 await loadLesson(lesson, content);
+                const btn = header.querySelector('.lesson-btn');
+                if (btn) btn.textContent = 'Close';
             }
         });
     });
