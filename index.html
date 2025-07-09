@@ -7,7 +7,6 @@
     <!-- Ensure paths resolve when served from a repository subpath -->
     <base href="/llm-quiz-time/">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="vendor/bootstrap5/css/bootstrap.min.css">
 </head>
 <body>
     <button id="theme-toggle" class="theme-toggle" title="Toggle Day/Night">🌙</button>
@@ -37,30 +36,20 @@ L L M   Q u i z   T i m e
     <div id="science-tab" class="tab-content">
         <div class="lessons">
             <div class="lesson">
-                <div class="lesson-header" data-lesson="tokenizers">
-                    <span class="lesson-title">1. Do you know your tokenizers well?</span>
-                    <button class="lesson-btn btn btn-sm btn-secondary">Open</button>
-                </div>
+                <div class="lesson-header" data-lesson="tokenizers">Do you know your tokenizers well?</div>
                 <div class="lesson-content gallery" id="tokenizers"></div>
             </div>
             <div class="lesson">
-                <div class="lesson-header" data-lesson="pytorch_resource_accounting">
-                    <span class="lesson-title">2. Let's hold you accountable for Pytorch Resource Accounting</span>
-                    <button class="lesson-btn btn btn-sm btn-primary">Open</button>
-                </div>
+                <div class="lesson-header" data-lesson="pytorch_resource_accounting">Let's hold you accountable for Pytorch Resource Accounting</div>
                 <div class="lesson-content gallery" id="pytorch_resource_accounting"></div>
             </div>
             <div class="lesson">
-                <div class="lesson-header" data-lesson="hyperparameters">
-                    <span class="lesson-title">3. Let's see what are your parameters on Hyperparameters!</span>
-                    <button class="lesson-btn btn btn-sm btn-secondary">Open</button>
-                </div>
+                <div class="lesson-header" data-lesson="hyperparameters">Let's see what are your parameters on Hyperparameters!</div>
                 <div class="lesson-content gallery" id="hyperparameters"></div>
             </div>
         </div>
         <p class="note">Note that Questions and Answers are AI generated, and may contain hallucinations.</p>
     </div>
-    <script src="vendor/bootstrap5/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
